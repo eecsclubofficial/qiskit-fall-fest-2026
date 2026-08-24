@@ -1,0 +1,12 @@
+<svg width="220" height="60" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- EECS Club IISER Bhopal Vector Logo -->
+  <g>
+    <rect x="2" y="6" width="48" height="48" rx="8" fill="#161616" stroke="#BE95FF" stroke-width="1.5"/>
+    <path d="M16 22L24 30L16 38" stroke="#BE95FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="26" y1="38" x2="36" y2="38" stroke="#4589FF" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="32" cy="22" r="2.5" fill="#FF7EB6"/>
+    <!-- Text -->
+    <text x="58" y="27" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="14" letter-spacing="0.04em">EECS CLUB</text>
+    <text x="58" y="42" fill="#BE95FF" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="10" letter-spacing="0.06em">IISER BHOPAL</text>
+  </g>
+</svg>
