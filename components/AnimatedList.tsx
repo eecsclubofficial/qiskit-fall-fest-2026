@@ -20,7 +20,7 @@ const AnimatedItem = ({
   onClick,
 }: AnimatedItemProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const inView = useInView(ref, { amount: 0.2, triggerOnce: false });
+  const inView = useInView(ref, { amount: 0.2, once: false });
 
   return (
     <motion.div
