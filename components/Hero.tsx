@@ -14,26 +14,6 @@ export function Hero() {
       <QuantumBackground />
 
       <div className="relative z-10 max-w-5xl mx-auto w-full text-center flex flex-col items-center pointer-events-none">
-        {/* Fall Fest Official 2026 Badge Mark */}
-        <div className="mb-6 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-foundation-surface/80 backdrop-blur-md border border-foundation-border/80 shadow-lg shadow-black/40 pointer-events-auto transition-transform hover:scale-105 duration-200">
-          <div className="w-4 h-4 relative flex-shrink-0">
-            <Image
-              src="/assets/brand/qiskit-purple.svg"
-              alt="Qiskit Icon"
-              width={16}
-              height={16}
-              className="w-full h-full object-contain"
-            />
-          </div>
-          <span className="text-xs font-mono font-medium tracking-wider text-qiskit-pink uppercase">
-            Qiskit Fall Fest 2026
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-foundation-muted" />
-          <span className="text-xs font-mono text-[#E0E0E0]/80">
-            IISER Bhopal
-          </span>
-        </div>
-
         {/* Display Headline - Sentence case per deck guidelines */}
         <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white max-w-4xl leading-[1.08] mb-6 drop-shadow-sm">
           IBM Qiskit Fall Fest 2026

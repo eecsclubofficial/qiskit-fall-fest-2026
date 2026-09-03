@@ -2,13 +2,12 @@
 
 import React from "react";
 import Image from "next/image";
-import { Sparkles, Terminal, Atom, Trophy } from "lucide-react";
+import { Terminal, Atom, Trophy } from "lucide-react";
 
 export function About() {
   const stats = [
     {
       value: "150+",
-      citation: "1",
       label: "Participants expected",
       sub: "Students & researchers",
       icon: UsersIcon,
@@ -16,7 +15,6 @@ export function About() {
     },
     {
       value: "12+",
-      citation: "2",
       label: "Sessions & workshops",
       sub: "From 101 to QPU runs",
       icon: Terminal,
@@ -24,7 +22,6 @@ export function About() {
     },
     {
       value: "48h",
-      citation: "3",
       label: "Hackathon sprint",
       sub: "Mentored project build",
       icon: Trophy,
@@ -32,7 +29,6 @@ export function About() {
     },
     {
       value: "0",
-      citation: "4",
       label: "Prior physics needed",
       sub: "Open to curious minds",
       icon: Atom,
@@ -73,7 +69,7 @@ export function About() {
 
             <div className="space-y-4 text-base sm:text-lg text-[#E0E0E0]/85 leading-relaxed font-normal">
               <p>
-                IBM Qiskit Fall Fest is a global series of collegiate quantum events hosted at leading universities worldwide. Sponsored by IBM Quantum, each Fall Fest provides students with exclusive access to world-class quantum learning materials, technical mentorship, and real quantum computing systems.
+                IBM Qiskit Fall Fest is a global series of collegiate quantum events hosted at leading universities worldwide. Each Fall Fest provides students with exclusive access to world-class quantum learning materials, technical mentorship, and real quantum computing systems.
               </p>
               <p>
                 The 2026 IISER Bhopal edition is co-organized as an interdisciplinary collaboration between the <span className="text-white font-medium">Electrical Engineering & Computer Science (EECS) Club</span> and the <span className="text-white font-medium">Physics Club</span>. Together, we bring quantum computing from theoretical physics equations into hands-on code and tangible algorithmic execution.
@@ -81,9 +77,6 @@ export function About() {
             </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <span className="text-xs font-mono px-3 py-1.5 rounded bg-foundation-surface border border-foundation-border text-qiskit-blue">
-                IBM Quantum Partnered
-              </span>
               <span className="text-xs font-mono px-3 py-1.5 rounded bg-foundation-surface border border-foundation-border text-qiskit-purple-light">
                 IISERB EECS Club
               </span>
@@ -150,9 +143,6 @@ export function About() {
                   <span className={`text-3xl sm:text-4xl font-mono font-semibold tracking-tight ${stat.color}`}>
                     {stat.value}
                   </span>
-                  <sup className="text-xs font-mono font-bold text-foundation-light/70 top-[-0.75em]">
-                    {stat.citation}
-                  </sup>
                 </div>
                 <p className="text-xs sm:text-sm font-semibold text-white">
                   {stat.label}
@@ -163,22 +153,6 @@ export function About() {
               </div>
             );
           })}
-        </div>
-
-        {/* Stat Citations Footnote (IBM Deck Pattern: claim¹ + Source footer) */}
-        <div className="mt-8 pt-4 border-t border-foundation-border/40 text-[11px] font-mono text-foundation-muted space-y-1">
-          <p>
-            Source: 1. Projected attendance based on lecture hall capacity and previous regional events.
-          </p>
-          <p>
-            Source: 2. Scheduled hands-on labs, technical keynotes, and hackathon project review slots.
-          </p>
-          <p>
-            Source: 3. Team-based quantum application hackathon with live mentor checkpoints.
-          </p>
-          <p>
-            Source: 4. Foundational tracks begin with quantum state representation and basic Python syntax.
-          </p>
         </div>
       </div>
     </section>

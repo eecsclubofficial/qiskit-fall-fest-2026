@@ -40,14 +40,6 @@ export default function HomePage() {
         {/* 3. About the Fest & Credibility Stats */}
         <About />
 
-        {/* Chapter Break 1: Bridge to Technical Programme */}
-        <ChapterBreak
-          number="01"
-          tag="Curriculum"
-          headline="From quantum gates to real hardware. Zero barrier to entry."
-          description="A structured learning track connecting theoretical physics foundations with practical algorithmic programming on IBM Quantum systems."
-        />
-
         {/* 4. Programme / Schedule */}
         <Schedule />
 
