@@ -5,7 +5,6 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { ValueProps } from "@/components/ValueProps";
 import { About } from "@/components/About";
-import { ChapterBreak } from "@/components/ChapterBreak";
 import { Schedule } from "@/components/Schedule";
 import { Organizers } from "@/components/Organizers";
 import { Venue } from "@/components/Venue";
@@ -51,14 +50,6 @@ export default function HomePage() {
 
         {/* 7. Open to Everyone Feature Strip */}
         <OpenToAll />
-
-        {/* Chapter Break 2: Bridge to Registration */}
-        <ChapterBreak
-          number="02"
-          tag="Community"
-          headline="Build the future of computation with us at IISER Bhopal."
-          description="Register your interest today to secure early access to tutorials, quantum compute credits, and hackathon problem statements."
-        />
 
         {/* 8. Registration Form */}
         <Registration
