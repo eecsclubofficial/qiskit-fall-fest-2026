@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono, Geist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -52,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} dark`}
+      className={cn("dark", ibmPlexSans.variable, ibmPlexMono.variable, "font-sans", geist.variable)}
     >
       <body className="bg-foundation-bg text-foundation-light min-h-screen antialiased selection:bg-qiskit-purple selection:text-white">
         <a href="#main-content" className="skip-link">
