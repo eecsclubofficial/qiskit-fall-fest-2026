@@ -1,144 +1,163 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { Terminal, Atom, Globe, ExternalLink } from "lucide-react";
+import ProfileCard from "./ProfileCard";
+import { Terminal, Atom } from "lucide-react";
 
 export function Organizers() {
-  const clubs = [
+  const eecsOrganizers = [
     {
-      name: "EECS Club",
-      institution: "IISER Bhopal",
-      role: "Co-organizing Department Club",
-      badgeText: "Electrical Engineering & Computer Science",
-      description:
-        "The EECS Club is the student-led hub for computing, algorithms, hardware architectures, and AI at IISER Bhopal. For Fall Fest, the club leads technical workshops on Qiskit SDK workflows, quantum algorithms, and hackathon infrastructure.",
-      color: "border-qiskit-purple/60 hover:border-qiskit-purple",
-      tagColor: "text-qiskit-purple-light",
-      icon: Terminal,
-      logoSrc: "/assets/clubs/eecs-club-logo.svg",
-      contactPlaceholder: "eecs.club@iiserb.ac.in",
+      name: "EECS Club Lead",
+      title: "Co-Organizer & Technical Lead",
+      handle: "eecs_lead",
+      status: "Organizer",
+      avatarUrl: "/assets/clubs/eecs-club-logo.svg",
+      behindGlowColor: "rgba(69, 137, 255, 0.6)",
+      innerGradient:
+        "linear-gradient(145deg, rgba(69, 137, 255, 0.25) 0%, rgba(164, 109, 255, 0.15) 100%)",
     },
     {
-      name: "Physics Club",
-      institution: "IISER Bhopal",
-      role: "Co-organizing Department Club",
-      badgeText: "Department of Physics",
-      description:
-        "The Physics Club at IISER Bhopal fosters deep scientific inquiry across theoretical and experimental physics. In this Fall Fest, the club conducts foundational sessions on quantum mechanics, state vectors, superposition, and quantum optics.",
-      color: "border-qiskit-pink/60 hover:border-qiskit-pink",
-      tagColor: "text-qiskit-pink",
-      icon: Atom,
-      logoSrc: "/assets/clubs/physics-club-logo.svg",
-      contactPlaceholder: "physics.club@iiserb.ac.in",
+      name: "Workshop Coordinator",
+      title: "Qiskit Labs & Infrastructure",
+      handle: "eecs_workshop",
+      status: "Organizer",
+      avatarUrl: "/assets/clubs/eecs-club-logo.svg",
+      behindGlowColor: "rgba(164, 109, 255, 0.6)",
+      innerGradient:
+        "linear-gradient(145deg, rgba(164, 109, 255, 0.25) 0%, rgba(69, 137, 255, 0.15) 100%)",
+    },
+    {
+      name: "Hackathon Lead",
+      title: "Ideathon & Problem Statements",
+      handle: "eecs_hackathon",
+      status: "Organizer",
+      avatarUrl: "/assets/clubs/eecs-club-logo.svg",
+      behindGlowColor: "rgba(69, 137, 255, 0.6)",
+      innerGradient:
+        "linear-gradient(145deg, rgba(69, 137, 255, 0.2) 0%, rgba(255, 126, 182, 0.15) 100%)",
+    },
+  ];
+
+  const physicsOrganizers = [
+    {
+      name: "Physics Club Lead",
+      title: "Co-Organizer & Theory Lead",
+      handle: "physics_lead",
+      status: "Organizer",
+      avatarUrl: "/assets/clubs/physics-club-logo.svg",
+      behindGlowColor: "rgba(255, 126, 182, 0.6)",
+      innerGradient:
+        "linear-gradient(145deg, rgba(255, 126, 182, 0.25) 0%, rgba(164, 109, 255, 0.15) 100%)",
+    },
+    {
+      name: "Quantum Theory Lead",
+      title: "Keynotes & Student Talks",
+      handle: "physics_theory",
+      status: "Organizer",
+      avatarUrl: "/assets/clubs/physics-club-logo.svg",
+      behindGlowColor: "rgba(190, 149, 255, 0.6)",
+      innerGradient:
+        "linear-gradient(145deg, rgba(190, 149, 255, 0.25) 0%, rgba(255, 126, 182, 0.15) 100%)",
+    },
+    {
+      name: "Logistics Coordinator",
+      title: "Venue & Guest Relations",
+      handle: "physics_event",
+      status: "Organizer",
+      avatarUrl: "/assets/clubs/physics-club-logo.svg",
+      behindGlowColor: "rgba(255, 126, 182, 0.6)",
+      innerGradient:
+        "linear-gradient(145deg, rgba(255, 126, 182, 0.2) 0%, rgba(69, 137, 255, 0.15) 100%)",
     },
   ];
 
   return (
-    <section id="organizers" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0E1218] border-t border-foundation-border/60">
+    <section
+      id="organizers"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0E1218] border-t border-foundation-border/60"
+    >
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="max-w-3xl mb-14">
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16">
           <p className="text-xs font-mono font-medium tracking-[0.2em] text-qiskit-pink uppercase mb-2">
             Organizing Committee
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight">
             Co-organized by student clubs at IISER Bhopal.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#E0E0E0]/80">
-            A collaborative initiative bridging foundational physics with computer science and engineering to accelerate quantum discovery.
-          </p>
         </div>
 
-        {/* Co-Organizers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {clubs.map((club) => {
-            const Icon = club.icon;
-            return (
-              <div
-                key={club.name}
-                className={`bg-foundation-surface border ${club.color} rounded-lg p-7 sm:p-8 flex flex-col justify-between transition-all duration-200 shadow-lg`}
-              >
-                <div>
-                  {/* Top Bar */}
-                  <div className="flex items-center justify-between gap-4 mb-6">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2.5 rounded bg-foundation-elevated border border-foundation-border">
-                        <Icon className={`w-6 h-6 ${club.tagColor}`} />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-semibold text-white tracking-tight">
-                          {club.name}
-                        </h3>
-                        <p className="text-xs font-mono text-[#BDCDEF]">
-                          {club.institution}
-                        </p>
-                      </div>
-                    </div>
-                    <span className="text-xs font-mono px-2.5 py-1 rounded bg-foundation-elevated border border-foundation-border text-[#E0E0E0]">
-                      {club.role}
-                    </span>
-                  </div>
-
-                  <p className="text-xs font-mono text-foundation-muted uppercase tracking-wider mb-3">
-                    {club.badgeText}
-                  </p>
-
-                  <p className="text-sm text-[#E0E0E0]/85 leading-relaxed">
-                    {club.description}
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-foundation-border/60 flex items-center justify-between text-xs font-mono text-[#BDCDEF]">
-                  <span>Contact: {club.contactPlaceholder}</span>
-                  <span className="text-foundation-muted">IISERB Chapter</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Presenting Partner Strip */}
-        <div className="bg-foundation-surface border border-foundation-border rounded-lg p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-            <div className="flex items-center gap-4 bg-foundation-elevated px-5 py-3 rounded border border-foundation-border">
-              <div className="w-8 h-8 relative flex-shrink-0">
-                <Image
-                  src="/assets/brand/qiskit-purple.svg"
-                  alt="Qiskit Icon"
-                  width={32}
-                  height={32}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="h-6 flex items-center">
-                <Image
-                  src="/assets/brand/ibm-quantum-white.png"
-                  alt="IBM Quantum"
-                  width={120}
-                  height={24}
-                  className="h-5 w-auto object-contain"
-                />
-              </div>
+        {/* 1. EECS Club Section */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-8 pb-3 border-b border-foundation-border/60">
+            <div className="p-2 rounded bg-foundation-elevated border border-foundation-border">
+              <Terminal className="w-5 h-5 text-qiskit-blue" />
             </div>
-
             <div>
-              <span className="text-xs font-mono text-qiskit-blue uppercase tracking-wider block mb-1">
-                Global Presenting Partner
-              </span>
-              <h4 className="text-base sm:text-lg font-semibold text-white">
-                IBM Quantum & Qiskit
-              </h4>
-              <p className="text-xs text-[#E0E0E0]/80 mt-0.5 max-w-xl">
-                Providing official Fall Fest curriculum, open-source quantum tooling, hardware access credits, and event sponsorship.
+              <h3 className="text-2xl font-semibold text-white tracking-tight">
+                EECS Club
+              </h3>
+              <p className="text-xs font-mono text-[#BDCDEF]">
+                Electrical Engineering &amp; Computer Science · IISER Bhopal
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-mono text-foundation-muted px-3 py-1.5 rounded bg-foundation-elevated border border-foundation-border">
-              qiskit.org
-            </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+            {eecsOrganizers.map((org, index) => (
+              <ProfileCard
+                key={index}
+                name={org.name}
+                title={org.title}
+                handle={org.handle}
+                status={org.status}
+                contactText="Profile"
+                avatarUrl={org.avatarUrl}
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={true}
+                behindGlowColor={org.behindGlowColor}
+                behindGlowEnabled={true}
+                innerGradient={org.innerGradient}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* 2. Physics Club Section */}
+        <div>
+          <div className="flex items-center gap-3 mb-8 pb-3 border-b border-foundation-border/60">
+            <div className="p-2 rounded bg-foundation-elevated border border-foundation-border">
+              <Atom className="w-5 h-5 text-qiskit-pink" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-semibold text-white tracking-tight">
+                Physics Club
+              </h3>
+              <p className="text-xs font-mono text-[#BDCDEF]">
+                Department of Physics · IISER Bhopal
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+            {physicsOrganizers.map((org, index) => (
+              <ProfileCard
+                key={index}
+                name={org.name}
+                title={org.title}
+                handle={org.handle}
+                status={org.status}
+                contactText="Profile"
+                avatarUrl={org.avatarUrl}
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={true}
+                behindGlowColor={org.behindGlowColor}
+                behindGlowEnabled={true}
+                innerGradient={org.innerGradient}
+              />
+            ))}
           </div>
         </div>
       </div>
