@@ -11,6 +11,7 @@ import {
   Trophy,
   Users,
 } from "lucide-react";
+import AnimatedList from "./AnimatedList";
 
 interface Session {
   id: string;
@@ -262,23 +263,35 @@ export function Schedule() {
           </div>
         </div>
 
-        {/* Schedule Table / List */}
-        <div className="space-y-3.5">
-          {filteredSessions.map((session) => {
+        {/* Animated Schedule List using React Bits AnimatedList */}
+        <AnimatedList
+          key={activeTab}
+          items={filteredSessions}
+          showGradients={true}
+          enableArrowNavigation={true}
+          displayScrollbar={true}
+          renderItem={(session, index, isSelected) => {
             const isExpanded = expandedId === session.id;
             const Icon = getFormatIcon(session.format);
             return (
               <div
-                key={session.id}
-                className="bg-foundation-surface border border-foundation-border hover:border-foundation-muted rounded-lg transition-all overflow-hidden"
+                className={`bg-foundation-surface border rounded-lg transition-all overflow-hidden ${
+                  isSelected
+                    ? "border-qiskit-blue shadow-lg shadow-qiskit-blue/10"
+                    : "border-foundation-border hover:border-foundation-muted"
+                }`}
               >
                 <div
-                  onClick={() => setExpandedId(isExpanded ? null : session.id)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setExpandedId(isExpanded ? null : session.id);
+                  }}
                   className="p-5 sm:p-6 cursor-pointer flex flex-col lg:flex-row lg:items-center justify-between gap-4 select-none"
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
                       setExpandedId(isExpanded ? null : session.id);
                     }
                   }}
@@ -358,8 +371,8 @@ export function Schedule() {
                 )}
               </div>
             );
-          })}
-        </div>
+          }}
+        />
       </div>
     </section>
   );
