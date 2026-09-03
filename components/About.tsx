@@ -2,65 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
-import { Terminal, Atom, Trophy } from "lucide-react";
 
 export function About() {
-  const stats = [
-    {
-      value: "150+",
-      label: "Participants expected",
-      sub: "Students & researchers",
-      icon: UsersIcon,
-      color: "text-qiskit-blue",
-    },
-    {
-      value: "12+",
-      label: "Sessions & workshops",
-      sub: "From 101 to QPU runs",
-      icon: Terminal,
-      color: "text-qiskit-purple",
-    },
-    {
-      value: "48h",
-      label: "Hackathon sprint",
-      sub: "Mentored project build",
-      icon: Trophy,
-      color: "text-qiskit-pink",
-    },
-    {
-      value: "0",
-      label: "Prior physics needed",
-      sub: "Open to curious minds",
-      icon: Atom,
-      color: "text-qiskit-blue",
-    },
-  ];
-
-  function UsersIcon(props: React.SVGProps<SVGSVGElement>) {
-    return (
-      <svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    );
-  }
-
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-foundation-bg/70 backdrop-blur-sm border-t border-foundation-border/60">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading & Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Text Story (Col 7) */}
           <div className="lg:col-span-7 flex flex-col">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight mb-6">
@@ -122,37 +70,6 @@ export function About() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Stat Callouts Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-6">
-          {stats.map((stat, idx) => {
-            const Icon = stat.icon;
-            return (
-              <div
-                key={idx}
-                className="bg-foundation-surface border border-foundation-border rounded-lg p-5 sm:p-6 transition-all hover:border-foundation-muted"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <Icon className={`w-5 h-5 ${stat.color}`} />
-                  <span className="text-[10px] font-mono text-foundation-muted">
-                    0{idx + 1}
-                  </span>
-                </div>
-                <div className="flex items-baseline gap-0.5 mb-1">
-                  <span className={`text-3xl sm:text-4xl font-mono font-semibold tracking-tight ${stat.color}`}>
-                    {stat.value}
-                  </span>
-                </div>
-                <p className="text-xs sm:text-sm font-semibold text-white">
-                  {stat.label}
-                </p>
-                <p className="text-xs text-[#BDCDEF] mt-0.5">
-                  {stat.sub}
-                </p>
-              </div>
-            );
-          })}
         </div>
       </div>
     </section>
