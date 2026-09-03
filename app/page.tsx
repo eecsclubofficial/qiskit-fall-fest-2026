@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Navbar } from "@/components/Navbar";
+import { QuantumBackground } from "@/components/QuantumBackground";
 import { Hero } from "@/components/Hero";
 import { ValueProps } from "@/components/ValueProps";
 import { About } from "@/components/About";
@@ -24,12 +25,15 @@ export default function HomePage() {
   const [accessibilityOpen, setAccessibilityOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-foundation-bg text-foundation-light selection:bg-qiskit-purple selection:text-white">
+    <div className="min-h-screen flex flex-col bg-foundation-bg text-foundation-light selection:bg-qiskit-purple selection:text-white relative">
+      {/* Global Fluid LiquidEther Background across the entire website */}
+      <QuantumBackground />
+
       {/* Navigation */}
       <Navbar />
 
       {/* Main Content Area */}
-      <main id="main-content" className="flex-1">
+      <main id="main-content" className="flex-1 relative z-10">
         {/* 1. Hero Section */}
         <Hero />
 
@@ -62,11 +66,13 @@ export default function HomePage() {
       </main>
 
       {/* Footer */}
-      <Footer
-        onOpenPrivacy={() => setPrivacyOpen(true)}
-        onOpenCodeOfConduct={() => setCodeOfConductOpen(true)}
-        onOpenAccessibility={() => setAccessibilityOpen(true)}
-      />
+      <div className="relative z-10">
+        <Footer
+          onOpenPrivacy={() => setPrivacyOpen(true)}
+          onOpenCodeOfConduct={() => setCodeOfConductOpen(true)}
+          onOpenAccessibility={() => setAccessibilityOpen(true)}
+        />
+      </div>
 
       {/* Interactive Modal Dialogs */}
       <PrivacyModal

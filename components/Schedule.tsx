@@ -226,7 +226,7 @@ export function Schedule() {
   return (
     <section
       id="schedule"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-foundation-bg border-t border-foundation-border/60"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-foundation-bg/70 backdrop-blur-sm border-t border-foundation-border/60"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}

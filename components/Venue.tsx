@@ -6,7 +6,7 @@ import { MapPin, Navigation, Plane, Train, Compass, ExternalLink } from "lucide-
 
 export function Venue() {
   return (
-    <section id="venue" className="py-20 px-4 sm:px-6 lg:px-8 bg-foundation-bg border-t border-foundation-border/60">
+    <section id="venue" className="py-20 px-4 sm:px-6 lg:px-8 bg-foundation-bg/70 backdrop-blur-sm border-t border-foundation-border/60">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="max-w-3xl mb-14">

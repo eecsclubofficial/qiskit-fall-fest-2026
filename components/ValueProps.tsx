@@ -41,7 +41,7 @@ export function ValueProps() {
   ];
 
   return (
-    <section id="highlights" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-foundation-border/60 bg-[#0E1218]">
+    <section id="highlights" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-foundation-border/60 bg-[#0E1218]/70 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="max-w-3xl mb-14">

@@ -3,16 +3,12 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowDown, Calendar, MapPin } from "lucide-react";
-import { QuantumBackground } from "./QuantumBackground";
-
 export function Hero() {
   return (
     <section
       id="hero"
       className="relative min-h-[92vh] md:min-h-[96vh] flex items-center justify-center pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      <QuantumBackground />
-
       <div className="relative z-10 max-w-5xl mx-auto w-full text-center flex flex-col items-center pointer-events-none">
         {/* Display Headline - Sentence case per deck guidelines */}
         <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white max-w-4xl leading-[1.08] mb-6 drop-shadow-sm">

@@ -8,11 +8,11 @@ export function QuantumBackground() {
 
   return (
     <div
-      className="absolute inset-0 overflow-hidden select-none z-0"
+      className="fixed inset-0 pointer-events-none overflow-hidden select-none z-0"
       aria-hidden="true"
     >
-      {/* Interactive Liquid Ether Canvas - Exact React-Bits Palette */}
-      <div className="absolute inset-0 w-full h-full pointer-events-auto">
+      {/* Interactive Liquid Ether Canvas throughout the entire website */}
+      <div className="absolute inset-0 w-full h-full">
         <LiquidEther
           colors={["#5227FF", "#FF9FFC", "#B497CF"]}
           mouseForce={20}
@@ -36,7 +36,7 @@ export function QuantumBackground() {
 
       {/* Subtle Quantum Grid Pattern Overlay */}
       <svg
-        className="absolute inset-0 w-full h-full opacity-[0.08] pointer-events-none"
+        className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
@@ -61,14 +61,6 @@ export function QuantumBackground() {
         </defs>
         <rect width="100%" height="100%" fill={`url(#${patternId})`} />
       </svg>
-
-      {/* Subtle bottom fade to seamlessly blend into lower sections */}
-      <div
-        className="absolute inset-x-0 bottom-0 h-32 pointer-events-none"
-        style={{
-          background: "linear-gradient(to bottom, transparent, #0B0E14)",
-        }}
-      />
     </div>
   );
 }

@@ -83,7 +83,7 @@ export function Registration({ onOpenPrivacy, onOpenCodeOfConduct }: Registratio
   };
 
   return (
-    <section id="register" className="py-20 px-4 sm:px-6 lg:px-8 bg-foundation-bg border-t border-foundation-border/60">
+    <section id="register" className="py-20 px-4 sm:px-6 lg:px-8 bg-foundation-bg/70 backdrop-blur-sm border-t border-foundation-border/60">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">

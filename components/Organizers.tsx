@@ -74,7 +74,7 @@ export function Organizers() {
   return (
     <section
       id="organizers"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0E1218] border-t border-foundation-border/60"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0E1218]/70 backdrop-blur-sm border-t border-foundation-border/60"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
