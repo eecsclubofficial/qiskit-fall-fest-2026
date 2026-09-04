@@ -12,6 +12,7 @@ import {
   Users,
 } from "lucide-react";
 import AnimatedList from "./AnimatedList";
+import { useScheduleStore } from "@/store/useScheduleStore";
 
 interface Session {
   id: string;
@@ -27,8 +28,7 @@ interface Session {
 }
 
 export function Schedule() {
-  const [activeTab, setActiveTab] = useState<number>(0);
-  const [expandedId, setExpandedId] = useState<string | null>("d1-s1");
+  const { activeTab, setActiveTab, expandedId, setExpandedId } = useScheduleStore();
 
   const sessions: Session[] = [
     // --- DAY 1 ---

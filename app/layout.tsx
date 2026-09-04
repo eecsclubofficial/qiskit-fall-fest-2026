@@ -47,6 +47,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { QueryProvider } from "@/providers/QueryProvider";
+
 export default function RootLayout({
   children,
 }: {
@@ -58,10 +60,12 @@ export default function RootLayout({
       className={cn("dark", ibmPlexSans.variable, ibmPlexMono.variable, "font-sans", geist.variable)}
     >
       <body className="bg-foundation-bg text-foundation-light min-h-screen antialiased selection:bg-qiskit-purple selection:text-white">
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-        {children}
+        <QueryProvider>
+          <a href="#main-content" className="skip-link">
+            Skip to main content
+          </a>
+          {children}
+        </QueryProvider>
       </body>
     </html>
   );

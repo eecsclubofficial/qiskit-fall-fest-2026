@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Navbar } from "@/components/Navbar";
 import { QuantumBackground } from "@/components/QuantumBackground";
 import { Hero } from "@/components/Hero";
@@ -18,11 +18,17 @@ import {
   CodeOfConductModal,
   AccessibilityModal,
 } from "@/components/Modals";
+import { useUIStore } from "@/store/useUIStore";
 
 export default function HomePage() {
-  const [privacyOpen, setPrivacyOpen] = useState(false);
-  const [codeOfConductOpen, setCodeOfConductOpen] = useState(false);
-  const [accessibilityOpen, setAccessibilityOpen] = useState(false);
+  const {
+    privacyOpen,
+    codeOfConductOpen,
+    accessibilityOpen,
+    setPrivacyOpen,
+    setCodeOfConductOpen,
+    setAccessibilityOpen,
+  } = useUIStore();
 
   return (
     <div className="min-h-screen flex flex-col bg-foundation-bg text-foundation-light selection:bg-qiskit-purple selection:text-white relative">
@@ -56,10 +62,7 @@ export default function HomePage() {
         <OpenToAll />
 
         {/* 8. Registration Form */}
-        <Registration
-          onOpenPrivacy={() => setPrivacyOpen(true)}
-          onOpenCodeOfConduct={() => setCodeOfConductOpen(true)}
-        />
+        <Registration />
 
         {/* 9. FAQ Accordion */}
         <Faq />
@@ -67,11 +70,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <div className="relative z-10">
-        <Footer
-          onOpenPrivacy={() => setPrivacyOpen(true)}
-          onOpenCodeOfConduct={() => setCodeOfConductOpen(true)}
-          onOpenAccessibility={() => setAccessibilityOpen(true)}
-        />
+        <Footer />
       </div>
 
       {/* Interactive Modal Dialogs */}

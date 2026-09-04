@@ -4,9 +4,10 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import { useUIStore } from "@/store/useUIStore";
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { mobileMenuOpen: isOpen, setMobileMenuOpen: setIsOpen } = useUIStore();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {

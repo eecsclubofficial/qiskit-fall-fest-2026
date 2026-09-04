@@ -19,9 +19,9 @@ export function QuantumBackground() {
           cursorSize={100}
           isViscous={true}
           viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.5}
+          iterationsViscous={12}
+          iterationsPoisson={16}
+          resolution={0.35}
           isBounce={false}
           autoDemo={true}
           autoSpeed={0.5}

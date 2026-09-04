@@ -2,26 +2,18 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { Mail, Github, Linkedin, Twitter, ExternalLink, ArrowUp } from "lucide-react";
+import { Mail, Github, Linkedin, Twitter, ArrowUp } from "lucide-react";
+import { useUIStore } from "@/store/useUIStore";
 
-interface FooterProps {
-  onOpenPrivacy: () => void;
-  onOpenCodeOfConduct: () => void;
-  onOpenAccessibility: () => void;
-}
+export function Footer() {
+  const { setPrivacyOpen, setCodeOfConductOpen, setAccessibilityOpen } = useUIStore();
 
-export function Footer({
-  onOpenPrivacy,
-  onOpenCodeOfConduct,
-  onOpenAccessibility,
-}: FooterProps) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <footer className="bg-[#070A0F] border-t border-foundation-border/80 pt-16 pb-12 px-4 sm:px-6 lg:px-8 text-foundation-light">
+    <footer className="bg-[#070A0F]/85 backdrop-blur-md border-t border-foundation-border/80 pt-16 pb-12 px-4 sm:px-6 lg:px-8 text-foundation-light">
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-foundation-border/60">
@@ -105,7 +97,7 @@ export function Footer({
               <div>
                 <button
                   type="button"
-                  onClick={onOpenPrivacy}
+                  onClick={() => setPrivacyOpen(true)}
                   className="hover:text-white transition-colors text-left"
                 >
                   Privacy Notice
@@ -114,7 +106,7 @@ export function Footer({
               <div>
                 <button
                   type="button"
-                  onClick={onOpenCodeOfConduct}
+                  onClick={() => setCodeOfConductOpen(true)}
                   className="hover:text-white transition-colors text-left"
                 >
                   Code of Conduct
@@ -123,7 +115,7 @@ export function Footer({
               <div>
                 <button
                   type="button"
-                  onClick={onOpenAccessibility}
+                  onClick={() => setAccessibilityOpen(true)}
                   className="hover:text-white transition-colors text-left"
                 >
                   Accessibility Statement
