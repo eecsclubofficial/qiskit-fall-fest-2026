@@ -99,12 +99,12 @@ export function Venue() {
           {/* Right Column: Campus Image Visual (Col 6) */}
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-xl overflow-hidden border border-foundation-border shadow-2xl bg-foundation-surface">
-              <div className="relative aspect-[4/3] w-full bg-white flex items-center justify-center p-4">
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <Image
-                  src="/assets/images/iiserb.svg"
+                  src="/assets/images/iiserb.jpeg"
                   alt="IISER Bhopal Campus Architecture"
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
 

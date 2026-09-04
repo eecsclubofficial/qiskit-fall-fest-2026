@@ -37,12 +37,12 @@ export function About() {
           {/* Photo & Sticker Visual (Col 5) */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-lg overflow-hidden border border-foundation-border shadow-2xl bg-foundation-surface">
-              <div className="aspect-[4/3] relative bg-white flex items-center justify-center p-4">
+              <div className="aspect-[4/3] relative w-full overflow-hidden">
                 <Image
-                  src="/assets/images/iiserb_Drone.svg"
+                  src="/assets/images/iiserb_Drone.jpeg"
                   alt="Aerial drone view of IISER Bhopal campus"
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
               </div>
