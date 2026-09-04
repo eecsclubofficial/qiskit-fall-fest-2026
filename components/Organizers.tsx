@@ -75,6 +75,7 @@ export function Organizers() {
       email: "mohammad24@iiserb.ac.in",
       linkedinUrl: "https://www.linkedin.com/in/ruvaifa-mohammad-a5648a300",
       githubUrl: "https://github.com/Ruvaifa",
+      websiteUrl: "https://ruvaifa.site/",
       avatarUrl: "/assets/images/ruvaifa.png",
       innerGradient:
         "linear-gradient(160deg, rgba(28, 30, 48, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
@@ -153,6 +154,7 @@ export function Organizers() {
                 email={org.email}
                 linkedinUrl={org.linkedinUrl}
                 githubUrl={org.githubUrl}
+                websiteUrl={(org as any).websiteUrl}
                 avatarUrl={org.avatarUrl}
                 showUserInfo={true}
                 innerGradient={org.innerGradient}

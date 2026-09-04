@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo } from "react";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, Globe } from "lucide-react";
 import "./ProfileCard.css";
 
 export interface ProfileCardProps {
@@ -12,6 +12,7 @@ export interface ProfileCardProps {
   email?: string;
   linkedinUrl?: string;
   githubUrl?: string;
+  websiteUrl?: string;
   avatarUrl?: string;
   miniAvatarUrl?: string;
   showUserInfo?: boolean;
@@ -27,6 +28,7 @@ export default function ProfileCard({
   email,
   linkedinUrl,
   githubUrl,
+  websiteUrl,
   avatarUrl,
   miniAvatarUrl,
   showUserInfo = true,
@@ -52,13 +54,13 @@ export default function ProfileCard({
           <p>{title}</p>
         </div>
 
-        {/* Center Logo / Avatar */}
+        {/* Center Portrait Image Frame */}
         <div className="pc-avatar-container">
           {avatarUrl && (
             <img
               className="pc-avatar-img"
               src={avatarUrl}
-              alt={`${name} emblem`}
+              alt={`${name} portrait`}
               loading="lazy"
             />
           )}
@@ -83,6 +85,18 @@ export default function ProfileCard({
 
             {/* Social & Contact Actions */}
             <div className="pc-social-actions">
+              {websiteUrl && (
+                <a
+                  href={websiteUrl.startsWith("http") ? websiteUrl : `https://${websiteUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pc-action-btn"
+                  title={`${name}'s Website`}
+                  aria-label={`${name}'s Website`}
+                >
+                  <Globe className="w-3.5 h-3.5 text-qiskit-purple-light" />
+                </a>
+              )}
               {email && (
                 <a
                   href={`mailto:${email}`}
