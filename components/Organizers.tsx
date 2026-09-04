@@ -15,7 +15,7 @@ export function Organizers() {
       email: "harshits24@iiserb.ac.in",
       linkedinUrl: "https://www.linkedin.com/in/sen-harshit",
       githubUrl: undefined,
-      avatarUrl: "/assets/clubs/iiserb-logo.svg",
+      avatarUrl: "/assets/images/harshit.jpg",
       innerGradient:
         "linear-gradient(160deg, rgba(28, 36, 56, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
@@ -27,7 +27,7 @@ export function Organizers() {
       email: "kushagra23@iiserb.ac.in",
       linkedinUrl: "https://www.linkedin.com/in/kushagra-agarwal525/",
       githubUrl: "https://github.com/KushagraAgarwal525",
-      avatarUrl: "/assets/clubs/eecs-club-logo.svg",
+      avatarUrl: "/assets/images/kushagra.jpg",
       innerGradient:
         "linear-gradient(160deg, rgba(32, 26, 52, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
@@ -39,7 +39,7 @@ export function Organizers() {
       email: "vatsal24@iiserb.ac.in",
       linkedinUrl: "https://www.linkedin.com/in/vatsal-agarwal-1710s",
       githubUrl: "https://github.com/Vatsal324",
-      avatarUrl: "/assets/clubs/eecs-club-logo.svg",
+      avatarUrl: "/assets/images/vatsal.jpg",
       innerGradient:
         "linear-gradient(160deg, rgba(24, 32, 48, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
@@ -51,7 +51,7 @@ export function Organizers() {
       email: "nikhilv24@iiserb.ac.in",
       linkedinUrl: "https://nikhilv.dev/linkedin",
       githubUrl: "https://nikhilv.dev/github",
-      avatarUrl: "/assets/clubs/eecs-club-logo.svg",
+      avatarUrl: "/assets/images/Nikhil.webp",
       innerGradient:
         "linear-gradient(160deg, rgba(24, 32, 48, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
@@ -63,7 +63,7 @@ export function Organizers() {
       email: "bavandla24@iiserb.ac.in",
       linkedinUrl: undefined,
       githubUrl: undefined,
-      avatarUrl: "/assets/clubs/physics-club-logo.svg",
+      avatarUrl: "/assets/images/sai.jpg",
       innerGradient:
         "linear-gradient(160deg, rgba(38, 24, 36, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
@@ -75,7 +75,7 @@ export function Organizers() {
       email: "mohammad24@iiserb.ac.in",
       linkedinUrl: "https://www.linkedin.com/in/ruvaifa-mohammad-a5648a300",
       githubUrl: "https://github.com/Ruvaifa",
-      avatarUrl: "/assets/clubs/eecs-club-logo.svg",
+      avatarUrl: "/assets/images/ruvaifa.png",
       innerGradient:
         "linear-gradient(160deg, rgba(28, 30, 48, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },

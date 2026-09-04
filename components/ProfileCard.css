@@ -56,14 +56,18 @@
 }
 
 .pc-avatar-img {
-  width: 96px;
-  height: 96px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .pc-card:hover .pc-avatar-img {
-  transform: scale(1.06);
+  transform: scale(1.05);
+  border-color: rgba(164, 109, 255, 0.5);
 }
 
 .pc-user-info {
