@@ -12,9 +12,8 @@ export function Organizers() {
       handle: "eecs_lead",
       status: "Organizer",
       avatarUrl: "/assets/clubs/eecs-club-logo.svg",
-      behindGlowColor: "rgba(69, 137, 255, 0.6)",
       innerGradient:
-        "linear-gradient(145deg, rgba(69, 137, 255, 0.25) 0%, rgba(164, 109, 255, 0.15) 100%)",
+        "linear-gradient(160deg, rgba(24, 32, 48, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
     {
       name: "Workshop Coordinator",
@@ -22,9 +21,8 @@ export function Organizers() {
       handle: "eecs_workshop",
       status: "Organizer",
       avatarUrl: "/assets/clubs/eecs-club-logo.svg",
-      behindGlowColor: "rgba(164, 109, 255, 0.6)",
       innerGradient:
-        "linear-gradient(145deg, rgba(164, 109, 255, 0.25) 0%, rgba(69, 137, 255, 0.15) 100%)",
+        "linear-gradient(160deg, rgba(28, 26, 48, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
     {
       name: "Hackathon Lead",
@@ -32,9 +30,8 @@ export function Organizers() {
       handle: "eecs_hackathon",
       status: "Organizer",
       avatarUrl: "/assets/clubs/eecs-club-logo.svg",
-      behindGlowColor: "rgba(69, 137, 255, 0.6)",
       innerGradient:
-        "linear-gradient(145deg, rgba(69, 137, 255, 0.2) 0%, rgba(255, 126, 182, 0.15) 100%)",
+        "linear-gradient(160deg, rgba(24, 32, 48, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
   ];
 
@@ -45,9 +42,8 @@ export function Organizers() {
       handle: "physics_lead",
       status: "Organizer",
       avatarUrl: "/assets/clubs/physics-club-logo.svg",
-      behindGlowColor: "rgba(255, 126, 182, 0.6)",
       innerGradient:
-        "linear-gradient(145deg, rgba(255, 126, 182, 0.25) 0%, rgba(164, 109, 255, 0.15) 100%)",
+        "linear-gradient(160deg, rgba(38, 24, 36, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
     {
       name: "Quantum Theory Lead",
@@ -55,9 +51,8 @@ export function Organizers() {
       handle: "physics_theory",
       status: "Organizer",
       avatarUrl: "/assets/clubs/physics-club-logo.svg",
-      behindGlowColor: "rgba(190, 149, 255, 0.6)",
       innerGradient:
-        "linear-gradient(145deg, rgba(190, 149, 255, 0.25) 0%, rgba(255, 126, 182, 0.15) 100%)",
+        "linear-gradient(160deg, rgba(32, 24, 44, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
     {
       name: "Logistics Coordinator",
@@ -65,9 +60,8 @@ export function Organizers() {
       handle: "physics_event",
       status: "Organizer",
       avatarUrl: "/assets/clubs/physics-club-logo.svg",
-      behindGlowColor: "rgba(255, 126, 182, 0.6)",
       innerGradient:
-        "linear-gradient(145deg, rgba(255, 126, 182, 0.2) 0%, rgba(69, 137, 255, 0.15) 100%)",
+        "linear-gradient(160deg, rgba(38, 24, 36, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
   ];
 
@@ -114,10 +108,6 @@ export function Organizers() {
                 contactText="Profile"
                 avatarUrl={org.avatarUrl}
                 showUserInfo={true}
-                enableTilt={true}
-                enableMobileTilt={true}
-                behindGlowColor={org.behindGlowColor}
-                behindGlowEnabled={true}
                 innerGradient={org.innerGradient}
               />
             ))}
@@ -151,10 +141,6 @@ export function Organizers() {
                 contactText="Profile"
                 avatarUrl={org.avatarUrl}
                 showUserInfo={true}
-                enableTilt={true}
-                enableMobileTilt={true}
-                behindGlowColor={org.behindGlowColor}
-                behindGlowEnabled={true}
                 innerGradient={org.innerGradient}
               />
             ))}
