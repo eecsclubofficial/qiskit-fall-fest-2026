@@ -90,7 +90,7 @@ export function Organizers() {
       description:
         "Fostering computational systems research, quantum algorithm workshops, and hands-on coding labs using the IBM Qiskit SDK.",
       icon: Terminal,
-      logoUrl: "/assets/clubs/eecs-club-logo.svg",
+      logoUrl: "/assets/images/eecs_logo.png",
       tag: "Computing & Software",
       tagColor: "text-qiskit-blue border-qiskit-blue/40 bg-qiskit-blue/10",
       accentBorder: "hover:border-qiskit-blue",
