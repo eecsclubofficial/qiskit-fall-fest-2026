@@ -101,8 +101,8 @@ export function Venue() {
             <div className="relative rounded-xl overflow-hidden border border-foundation-border shadow-2xl bg-foundation-surface">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/assets/photos/iiserb_campus_venue.jpg"
-                  alt="IISER Bhopal Lecture Hall Complex Campus Venue"
+                  src="/assets/images/iiserb.svg"
+                  alt="IISER Bhopal Campus Architecture"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"

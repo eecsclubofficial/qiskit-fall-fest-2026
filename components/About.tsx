@@ -39,8 +39,8 @@ export function About() {
             <div className="relative rounded-lg overflow-hidden border border-foundation-border shadow-2xl bg-foundation-surface">
               <div className="aspect-[4/3] relative">
                 <Image
-                  src="/assets/photos/iiserb_quantum_lab.jpg"
-                  alt="Quantum computing laboratory and collaboration session at IISER Bhopal"
+                  src="/assets/images/iiserb_Drone.svg"
+                  alt="Aerial drone view of IISER Bhopal campus"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 40vw"
