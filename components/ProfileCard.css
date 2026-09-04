@@ -1,6 +1,6 @@
 .pc-card-wrapper {
   width: 100%;
-  max-width: 320px;
+  max-width: 340px;
   margin: 0 auto;
 }
 
@@ -70,6 +70,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
   background: rgba(11, 14, 20, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
@@ -81,6 +82,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
 }
 
 .pc-mini-avatar {
@@ -106,6 +108,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  min-width: 0;
 }
 
 .pc-handle {
@@ -113,27 +116,42 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.95);
   font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pc-status {
   font-size: 10px;
   color: #be95ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.pc-contact-btn {
-  border: 1px solid rgba(255, 255, 255, 0.15);
+.pc-social-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.pc-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
   border-radius: 6px;
-  padding: 5px 10px;
-  font-size: 11px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.06);
-  cursor: pointer;
+  color: #ffffff;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.pc-contact-btn:hover {
+.pc-action-btn:hover {
   border-color: #4589ff;
-  background: rgba(69, 137, 255, 0.2);
-  color: #ffffff;
+  background: rgba(69, 137, 255, 0.25);
+  transform: translateY(-1px);
 }

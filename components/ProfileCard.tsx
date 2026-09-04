@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo } from "react";
+import { Mail, Linkedin, Github } from "lucide-react";
 import "./ProfileCard.css";
 
 export interface ProfileCardProps {
@@ -8,11 +9,12 @@ export interface ProfileCardProps {
   title?: string;
   handle?: string;
   status?: string;
-  contactText?: string;
+  email?: string;
+  linkedinUrl?: string;
+  githubUrl?: string;
   avatarUrl?: string;
   miniAvatarUrl?: string;
   showUserInfo?: boolean;
-  onContactClick?: () => void;
   innerGradient?: string;
   className?: string;
 }
@@ -22,11 +24,12 @@ export default function ProfileCard({
   title = "Club Coordinator",
   handle = "organizer",
   status = "Organizer",
-  contactText = "Profile",
+  email,
+  linkedinUrl,
+  githubUrl,
   avatarUrl,
   miniAvatarUrl,
   showUserInfo = true,
-  onContactClick,
   innerGradient,
   className = "",
 }: ProfileCardProps) {
@@ -78,15 +81,43 @@ export default function ProfileCard({
               </div>
             </div>
 
-            {contactText && (
-              <button
-                type="button"
-                className="pc-contact-btn"
-                onClick={onContactClick}
-              >
-                {contactText}
-              </button>
-            )}
+            {/* Social & Contact Actions */}
+            <div className="pc-social-actions">
+              {email && (
+                <a
+                  href={`mailto:${email}`}
+                  className="pc-action-btn"
+                  title={`Email ${name} (${email})`}
+                  aria-label={`Email ${name}`}
+                >
+                  <Mail className="w-3.5 h-3.5 text-qiskit-blue" />
+                </a>
+              )}
+              {linkedinUrl && (
+                <a
+                  href={linkedinUrl.startsWith("http") ? linkedinUrl : `https://${linkedinUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pc-action-btn"
+                  title={`${name} on LinkedIn`}
+                  aria-label={`${name} on LinkedIn`}
+                >
+                  <Linkedin className="w-3.5 h-3.5 text-[#71C4FF]" />
+                </a>
+              )}
+              {githubUrl && (
+                <a
+                  href={githubUrl.startsWith("http") ? githubUrl : `https://${githubUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pc-action-btn"
+                  title={`${name} on GitHub`}
+                  aria-label={`${name} on GitHub`}
+                >
+                  <Github className="w-3.5 h-3.5 text-white" />
+                </a>
+              )}
+            </div>
           </div>
         )}
       </div>

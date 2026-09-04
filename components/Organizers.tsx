@@ -3,63 +3,81 @@
 import React from "react";
 import Image from "next/image";
 import ProfileCard from "./ProfileCard";
-import { Users, Building2, Terminal, Atom, Mail, ExternalLink } from "lucide-react";
+import { Users, Building2, Terminal, Atom, Mail } from "lucide-react";
 
 export function Organizers() {
   const organizers = [
     {
-      name: "EECS Club Lead",
-      title: "Co-Organizer & Technical Lead",
-      handle: "eecs_lead",
-      status: "Organizer",
+      name: "Harshit Sen",
+      title: "Lead Organizer",
+      handle: "harshits24",
+      status: "Dept of Chemistry",
+      email: "harshits24@iiserb.ac.in",
+      linkedinUrl: "https://www.linkedin.com/in/sen-harshit",
+      githubUrl: undefined,
+      avatarUrl: "/assets/clubs/iiserb-logo.svg",
+      innerGradient:
+        "linear-gradient(160deg, rgba(28, 36, 56, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
+    },
+    {
+      name: "Kushagra Agarwal",
+      title: "Student Advisor",
+      handle: "kushagra23",
+      status: "Data Science & Engg",
+      email: "kushagra23@iiserb.ac.in",
+      linkedinUrl: "https://www.linkedin.com/in/kushagra-agarwal525/",
+      githubUrl: "https://github.com/KushagraAgarwal525",
+      avatarUrl: "/assets/clubs/eecs-club-logo.svg",
+      innerGradient:
+        "linear-gradient(160deg, rgba(32, 26, 52, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
+    },
+    {
+      name: "Vatsal Agarwal",
+      title: "Co-Organizer",
+      handle: "vatsal24",
+      status: "Electrical & CS",
+      email: "vatsal24@iiserb.ac.in",
+      linkedinUrl: "https://www.linkedin.com/in/vatsal-agarwal-1710s",
+      githubUrl: "https://github.com/Vatsal324",
       avatarUrl: "/assets/clubs/eecs-club-logo.svg",
       innerGradient:
         "linear-gradient(160deg, rgba(24, 32, 48, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
     {
-      name: "Physics Club Lead",
-      title: "Co-Organizer & Theory Lead",
-      handle: "physics_lead",
-      status: "Organizer",
-      avatarUrl: "/assets/clubs/physics-club-logo.svg",
-      innerGradient:
-        "linear-gradient(160deg, rgba(38, 24, 36, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
-    },
-    {
-      name: "Workshop Coordinator",
-      title: "Qiskit Labs & Infrastructure",
-      handle: "eecs_workshop",
-      status: "Organizer",
-      avatarUrl: "/assets/clubs/eecs-club-logo.svg",
-      innerGradient:
-        "linear-gradient(160deg, rgba(28, 26, 48, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
-    },
-    {
-      name: "Quantum Theory Lead",
-      title: "Keynotes & Student Talks",
-      handle: "physics_theory",
-      status: "Organizer",
-      avatarUrl: "/assets/clubs/physics-club-logo.svg",
-      innerGradient:
-        "linear-gradient(160deg, rgba(32, 24, 44, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
-    },
-    {
-      name: "Hackathon Lead",
-      title: "Ideathon & Problem Statements",
-      handle: "eecs_hackathon",
-      status: "Organizer",
+      name: "Nikhil Vashisht",
+      title: "Co-Organizer",
+      handle: "nikhilv24",
+      status: "Electrical & CS",
+      email: "nikhilv24@iiserb.ac.in",
+      linkedinUrl: "https://nikhilv.dev/linkedin",
+      githubUrl: "https://nikhilv.dev/github",
       avatarUrl: "/assets/clubs/eecs-club-logo.svg",
       innerGradient:
         "linear-gradient(160deg, rgba(24, 32, 48, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
     {
-      name: "Logistics Coordinator",
-      title: "Venue & Guest Relations",
-      handle: "physics_event",
-      status: "Organizer",
+      name: "B. Sai Chaitanya",
+      title: "Coordinator, Physics Club",
+      handle: "bavandla24",
+      status: "Dept of Physics",
+      email: "bavandla24@iiserb.ac.in",
+      linkedinUrl: undefined,
+      githubUrl: undefined,
       avatarUrl: "/assets/clubs/physics-club-logo.svg",
       innerGradient:
         "linear-gradient(160deg, rgba(38, 24, 36, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
+    },
+    {
+      name: "Mohammad Ruvaifa",
+      title: "Coordinator, EECS Club",
+      handle: "mohammad24",
+      status: "Electrical & CS",
+      email: "mohammad24@iiserb.ac.in",
+      linkedinUrl: "https://www.linkedin.com/in/ruvaifa-mohammad-a5648a300",
+      githubUrl: "https://github.com/Ruvaifa",
+      avatarUrl: "/assets/clubs/eecs-club-logo.svg",
+      innerGradient:
+        "linear-gradient(160deg, rgba(28, 30, 48, 0.95) 0%, rgba(14, 18, 26, 0.98) 100%)",
     },
   ];
 
@@ -132,7 +150,9 @@ export function Organizers() {
                 title={org.title}
                 handle={org.handle}
                 status={org.status}
-                contactText="Profile"
+                email={org.email}
+                linkedinUrl={org.linkedinUrl}
+                githubUrl={org.githubUrl}
                 avatarUrl={org.avatarUrl}
                 showUserInfo={true}
                 innerGradient={org.innerGradient}
