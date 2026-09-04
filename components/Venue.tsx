@@ -2,126 +2,133 @@
 
 import React from "react";
 import Image from "next/image";
-import { MapPin, Navigation, Plane, Train, Compass, ExternalLink } from "lucide-react";
+import { MapPin, ExternalLink, Sparkles, Building, Layers } from "lucide-react";
 
 export function Venue() {
+  const highlights = [
+    {
+      icon: Building,
+      title: "Lecture Hall Complex (LHC)",
+      desc: "Tiered multimedia lecture halls equipped for hybrid keynotes, panel discussions, and student lightning talks.",
+    },
+    {
+      icon: Layers,
+      title: "Advanced Compute & Labs",
+      desc: "Dedicated lab spaces with high-speed network connections for cloud QPU transpilation and Jupyter workflows.",
+    },
+    {
+      icon: Sparkles,
+      title: "200-Acre Green Campus",
+      desc: "An inspiring research ecosystem located in Bhauri, Bhopal, fostering interdisciplinary science and technology.",
+    },
+  ];
+
   return (
-    <section id="venue" className="py-20 px-4 sm:px-6 lg:px-8 bg-foundation-bg/70 backdrop-blur-sm border-t border-foundation-border/60">
+    <section
+      id="venue"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-foundation-bg/70 backdrop-blur-sm border-t border-foundation-border/60"
+    >
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-14">
-          <p className="text-xs font-mono font-medium tracking-[0.2em] text-qiskit-blue uppercase mb-2">
-            Host Campus
-          </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight">
-            IISER Bhopal, an institute of national importance.
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#E0E0E0]/80">
-            Set across 200 acres in Bhauri, IISER Bhopal provides state-of-the-art computational infrastructure, lecture auditoriums, and cutting-edge experimental physics research facilities.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column: Host Campus Information (Col 6) */}
+          <div className="lg:col-span-6 flex flex-col">
+            <p className="text-xs font-mono font-medium tracking-[0.2em] text-qiskit-blue uppercase mb-2">
+              Host Campus
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight mb-6">
+              IISER Bhopal, an institute of national importance.
+            </h2>
 
-        {/* Main Grid: Campus Photography + Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Photo & Badge (Col 7) */}
-          <div className="lg:col-span-7 relative rounded-lg overflow-hidden border border-foundation-border bg-foundation-surface flex flex-col justify-between shadow-xl">
-            <div className="relative aspect-[16/10] w-full">
-              <Image
-                src="/assets/photos/iiserb_campus_venue.jpg"
-                alt="IISER Bhopal Lecture Hall Complex Campus Venue"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 60vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foundation-bg/90 via-transparent to-transparent" />
-
-              <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-foundation-surface/90 backdrop-blur-md border border-foundation-border text-xs font-mono text-white">
-                <MapPin className="w-3.5 h-3.5 text-qiskit-pink" />
-                <span>Lecture Hall Complex (LHC)</span>
-              </div>
+            <div className="space-y-4 text-base text-[#E0E0E0]/85 leading-relaxed font-normal mb-8">
+              <p>
+                Set across 200 acres in Bhauri, the Indian Institute of Science Education and Research (IISER) Bhopal provides state-of-the-art computational infrastructure, lecture auditoriums, and cutting-edge experimental physics research facilities.
+              </p>
+              <p>
+                Established by the Ministry of Education, Government of India, IISER Bhopal is a premier research institute dedicated to scientific inquiry, advanced computing, and interdisciplinary innovation.
+              </p>
             </div>
 
-            <div className="p-6 bg-foundation-surface/95 border-t border-foundation-border">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <h4 className="text-lg font-semibold text-white">
-                    IISER Bhopal Main Campus
-                  </h4>
-                  <p className="text-xs font-mono text-[#BDCDEF] mt-0.5">
-                    Bhopal Bypass Road, Bhauri, Bhopal, Madhya Pradesh 462066
-                  </p>
-                </div>
+            {/* Key Campus Highlights */}
+            <div className="space-y-3 mb-8">
+              {highlights.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="p-3.5 rounded-lg bg-foundation-surface border border-foundation-border flex items-start gap-3.5"
+                  >
+                    <div className="p-2 rounded bg-foundation-elevated border border-foundation-border text-qiskit-blue flex-shrink-0">
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-semibold text-white">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-[#BDCDEF] mt-0.5 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
 
-                <a
-                  href="https://maps.google.com/?q=IISER+Bhopal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded bg-foundation-elevated hover:bg-foundation-border border border-foundation-border text-xs font-mono text-white transition-colors self-start sm:self-auto"
-                >
-                  <span>Google Maps</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-[#BDCDEF]" />
-                </a>
+            {/* Address & Google Maps link */}
+            <div className="p-4 rounded-lg bg-foundation-surface border border-foundation-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-mono font-medium text-white">
+                  IISER Bhopal Main Campus
+                </p>
+                <p className="text-[11px] font-mono text-[#BDCDEF] mt-0.5">
+                  Bhopal Bypass Road, Bhauri, Bhopal, MP 462066
+                </p>
               </div>
+
+              <a
+                href="https://maps.google.com/?q=IISER+Bhopal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded bg-foundation-elevated hover:bg-foundation-border border border-foundation-border text-xs font-mono text-white transition-colors self-start sm:self-auto"
+              >
+                <span>Google Maps</span>
+                <ExternalLink className="w-3.5 h-3.5 text-[#BDCDEF]" />
+              </a>
             </div>
           </div>
 
-          {/* Transit and Directions Cards (Col 5) */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
-            <div className="bg-foundation-surface border border-foundation-border rounded-lg p-6 flex-1">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded bg-foundation-elevated border border-foundation-border">
-                  <Plane className="w-5 h-5 text-qiskit-blue" />
-                </div>
-                <div>
-                  <h4 className="text-base font-semibold text-white">
-                    By Air
-                  </h4>
-                  <p className="text-xs font-mono text-[#BDCDEF]">
-                    Raja Bhoj Airport (BHO)
-                  </p>
-                </div>
-              </div>
-              <p className="text-xs text-[#E0E0E0]/80 leading-relaxed font-sans">
-                Located approximately 12 km from the IISER Bhopal campus. Pre-paid taxis and app cabs (Ola/Uber) are readily available from the airport terminal (approx. 20-25 min drive).
-              </p>
-            </div>
+          {/* Right Column: Campus Image Visual (Col 6) */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative rounded-xl overflow-hidden border border-foundation-border shadow-2xl bg-foundation-surface">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src="/assets/photos/iiserb_campus_venue.jpg"
+                  alt="IISER Bhopal Lecture Hall Complex Campus Venue"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foundation-bg/90 via-transparent to-transparent" />
 
-            <div className="bg-foundation-surface border border-foundation-border rounded-lg p-6 flex-1">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded bg-foundation-elevated border border-foundation-border">
-                  <Train className="w-5 h-5 text-qiskit-purple" />
-                </div>
-                <div>
-                  <h4 className="text-base font-semibold text-white">
-                    By Rail
-                  </h4>
-                  <p className="text-xs font-mono text-[#BDCDEF]">
-                    Bhopal Junction &amp; Rani Kamlapati
-                  </p>
+                <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-foundation-surface/90 backdrop-blur-md border border-foundation-border text-xs font-mono text-white shadow-lg">
+                  <MapPin className="w-3.5 h-3.5 text-qiskit-pink" />
+                  <span>Lecture Hall Complex (LHC)</span>
                 </div>
               </div>
-              <p className="text-xs text-[#E0E0E0]/80 leading-relaxed font-sans">
-                Bhopal Junction (BPL) is 18 km away; Rani Kamlapati Station (RKMP) is 22 km away. Both major junctions are well connected to all metro cities with direct taxi connections to the campus.
-              </p>
-            </div>
 
-            <div className="bg-foundation-surface border border-foundation-border rounded-lg p-6 flex-1">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded bg-foundation-elevated border border-foundation-border">
-                  <Navigation className="w-5 h-5 text-qiskit-pink" />
-                </div>
+              {/* Bottom Caption */}
+              <div className="p-5 bg-foundation-surface/95 border-t border-foundation-border flex items-center justify-between">
                 <div>
-                  <h4 className="text-base font-semibold text-white">
-                    Campus Entry &amp; Security
+                  <h4 className="text-sm font-semibold text-white">
+                    Main Event Venue
                   </h4>
-                  <p className="text-xs font-mono text-[#BDCDEF]">
-                    Gate 1 (Main Gate)
+                  <p className="text-xs font-mono text-[#BDCDEF] mt-0.5">
+                    Lecture Hall Complex &amp; Multimedia Rooms · IISER Bhopal
                   </p>
                 </div>
+                <span className="text-xs font-mono px-2.5 py-1 rounded bg-foundation-elevated border border-foundation-border text-qiskit-blue">
+                  In-Person
+                </span>
               </div>
-              <p className="text-xs text-[#E0E0E0]/80 leading-relaxed font-sans">
-                Registered participants will present their Fall Fest registration confirmation badge at Gate 1 security for campus entry and guest registration.
-              </p>
             </div>
           </div>
         </div>
