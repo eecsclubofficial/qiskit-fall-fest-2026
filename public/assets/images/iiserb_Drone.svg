@@ -5,8 +5,15 @@
  width="1200.000000pt" height="1584.000000pt" viewBox="0 0 1200.000000 1584.000000"
  preserveAspectRatio="xMidYMid meet">
 
+<defs>
+  <linearGradient id="qiskitDroneGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#4589FF" />
+    <stop offset="45%" stop-color="#BE95FF" />
+    <stop offset="100%" stop-color="#FF7EB6" />
+  </linearGradient>
+</defs>
 <g transform="translate(0.000000,1584.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
+fill="url(#qiskitDroneGrad)" stroke="none">
 <path d="M11875 12111 c-15 -7 -11 -9 18 -9 21 0 40 -2 43 -4 7 -8 -243 -28
 -338 -28 -74 0 -87 -2 -90 -17 -3 -15 -16 -18 -73 -20 -61 -3 -213 -4 -269 -2
 -10 0 -27 -8 -37 -17 -11 -9 -19 -12 -19 -7 0 6 -12 13 -26 16 l-26 5 26 -26

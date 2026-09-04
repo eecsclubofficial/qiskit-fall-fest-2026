@@ -37,15 +37,14 @@ export function About() {
           {/* Photo & Sticker Visual (Col 5) */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-lg overflow-hidden border border-foundation-border shadow-2xl bg-foundation-surface">
-              <div className="aspect-[4/3] relative">
+              <div className="aspect-[4/3] relative bg-gradient-to-b from-[#161B26] to-[#0D1117] flex items-center justify-center p-6">
                 <Image
                   src="/assets/images/iiserb_Drone.svg"
                   alt="Aerial drone view of IISER Bhopal campus"
                   fill
-                  className="object-cover"
+                  className="object-contain p-4 drop-shadow-[0_0_20px_rgba(69,137,255,0.25)]"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foundation-bg/90 via-transparent to-transparent" />
               </div>
 
               {/* Caption */}
