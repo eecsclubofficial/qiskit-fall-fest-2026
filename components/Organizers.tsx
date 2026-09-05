@@ -94,7 +94,7 @@ export function Organizers() {
       tag: "Computing & Software",
       tagColor: "text-qiskit-blue border-qiskit-blue/40 bg-qiskit-blue/10",
       accentBorder: "hover:border-qiskit-blue",
-      email: "eecs.club@iiserb.ac.in",
+      email: "eecs.club.official@gmail.com",
     },
     {
       name: "Physics Club",

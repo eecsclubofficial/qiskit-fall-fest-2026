@@ -117,7 +117,7 @@ export function Faq() {
           </div>
 
           <a
-            href="mailto:eecs.club@iiserb.ac.in?subject=Qiskit%20Fall%20Fest%202026%20Inquiry"
+            href="mailto:eecs.club.official@gmail.com?subject=Qiskit%20Fall%20Fest%202026%20Inquiry"
             className="px-4 py-2 rounded bg-foundation-elevated hover:bg-foundation-border border border-foundation-border text-xs font-mono text-white transition-colors"
           >
             Email Organizers

@@ -115,11 +115,11 @@ export function Footer() {
 
               <div className="pt-2">
                 <a
-                  href="mailto:eecs.club@iiserb.ac.in?subject=Qiskit%20Fall%20Fest%202026"
+                  href="mailto:eecs.club.official@gmail.com?subject=Qiskit%20Fall%20Fest%202026"
                   className="inline-flex items-center gap-2 text-xs font-mono text-qiskit-blue hover:underline"
                 >
                   <Mail className="w-3.5 h-3.5" />
-                  <span>eecs.club@iiserb.ac.in</span>
+                  <span>eecs.club.official@gmail.com</span>
                 </a>
               </div>
             </div>

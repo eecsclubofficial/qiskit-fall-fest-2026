@@ -70,13 +70,6 @@ export default function ProfileCard({
         {showUserInfo && (
           <div className="pc-user-info">
             <div className="pc-user-details">
-              <div className="pc-mini-avatar">
-                <img
-                  src={miniAvatarUrl || avatarUrl}
-                  alt={`${name} icon`}
-                  loading="lazy"
-                />
-              </div>
               <div className="pc-user-text">
                 <span className="pc-handle">@{handle}</span>
                 <span className="pc-status">{status}</span>

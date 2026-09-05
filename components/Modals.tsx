@@ -155,7 +155,7 @@ export function CodeOfConductModal({
 
         <h4 className="text-sm font-semibold text-white">3. Reporting & Enforcement</h4>
         <p>
-          Unacceptable behavior will not be tolerated. Participants asked to stop any harassing behavior are expected to comply immediately. Violations can be reported to the student lead organizers at <span className="font-mono text-qiskit-blue">eecs.club@iiserb.ac.in</span>.
+          Unacceptable behavior will not be tolerated. Participants asked to stop any harassing behavior are expected to comply immediately. Violations can be reported to the student lead organizers at <span className="font-mono text-qiskit-blue">eecs.club.official@gmail.com</span>.
         </p>
       </div>
     </BaseModal>
