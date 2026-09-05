@@ -57,3 +57,5 @@ __pycache__/
 # Vercel & Tooling
 .vercel
 .gemini/
+.agent/
+.agents/

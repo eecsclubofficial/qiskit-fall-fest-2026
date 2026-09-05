@@ -21,14 +21,19 @@ export interface RegistrationResponse {
 async function submitRegistrationApi(
   data: RegistrationPayload
 ): Promise<RegistrationResponse> {
-  // [INTEGRATION READY]: Connect to real endpoint (Supabase / Google Sheets / Server Action)
-  await new Promise((resolve) => setTimeout(resolve, 600));
+  const res = await fetch("/api/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
 
-  return {
-    success: true,
-    message: "Registration interest successfully recorded",
-    registeredAt: new Date().toISOString(),
-  };
+  const json = await res.json();
+
+  if (!res.ok) {
+    throw new Error(json.error || "Submission failed. Please try again.");
+  }
+
+  return json;
 }
 
 export function useRegistrationMutation() {

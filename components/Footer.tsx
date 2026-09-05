@@ -138,7 +138,7 @@ export function Footer() {
                 <Github className="w-4 h-4" />
               </a>
               <a
-                href="https://www.linkedin.com/school/iiser-bhopal/"
+                href="https://www.linkedin.com/company/eecsclub-iiserb"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -163,7 +163,7 @@ export function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-foundation-muted">
           <div className="text-center sm:text-left">
             <span>
-              Made by EECS Club × Physics Club, IISER Bhopal. Powered by IBM Quantum.
+              Made by team at EECS Club, IISER Bhopal. Powered by IBM Quantum.
             </span>
           </div>
 
