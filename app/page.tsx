@@ -21,6 +21,12 @@ import {
 import { useUIStore } from "@/store/useUIStore";
 
 export default function HomePage() {
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const {
     privacyOpen,
     codeOfConductOpen,
@@ -29,6 +35,12 @@ export default function HomePage() {
     setCodeOfConductOpen,
     setAccessibilityOpen,
   } = useUIStore();
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen flex flex-col bg-foundation-bg text-foundation-light relative" />
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-foundation-bg text-foundation-light selection:bg-qiskit-purple selection:text-white relative">

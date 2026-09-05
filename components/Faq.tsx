@@ -28,11 +28,6 @@ export function Faq() {
         "No. Participation in IBM Qiskit Fall Fest 2026 is completely free of charge. Workshop materials, IBM Quantum cloud compute credits, event participation certificates, merchandise, and hackathon prizes are fully provided by IBM Quantum and the host clubs.",
     },
     {
-      question: "When will the exact October 2026 dates be finalized?",
-      answer:
-        "Exact dates in October 2026 are currently being coordinated between IISER Bhopal's academic calendar and IBM Quantum global coordinators. By registering your interest on this page, you will automatically receive priority notification via email the moment dates and schedule timetables are officially locked.",
-    },
-    {
       question: "Will attendees get access to real IBM Quantum hardware?",
       answer:
         "Yes. Hands-on lab tracks will guide participants on using the Qiskit Runtime service to transpile and submit jobs to real utility-scale IBM Quantum QPUs hosted in the cloud, as well as statevector and matrix product state simulators.",
@@ -40,7 +35,7 @@ export function Faq() {
     {
       question: "Is travel and hostel accommodation provided for participants outside IISER Bhopal?",
       answer:
-        "Details regarding guest house and hostel accommodation allocations for non-IISER Bhopal participants are currently under final administrative review [TBD]. Please register your institution in the form, and our hospitality team will share lodging options prior to the event.",
+        "Details regarding guest house and hostel accommodation allocations for non-IISER Bhopal participants are currently under final administrative review [TBD]. Please register your interest in the form, and our hospitality team will share lodging options prior to the event.",
     },
     {
       question: "What software and hardware do I need to bring?",
@@ -62,10 +57,10 @@ export function Faq() {
             Frequently Asked Questions
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight">
-            Everything you need to know.
+            Everything you need to know
           </h2>
           <p className="mt-4 text-base text-[#E0E0E0]/80">
-            Have questions about eligibility, prerequisites, or the hackathon format? Find quick answers below.
+            Have questions about eligibility, prerequisites, or anything else? Find quick answers below.
           </p>
         </div>
 
@@ -88,9 +83,8 @@ export function Faq() {
                     {faq.question}
                   </span>
                   <div
-                    className={`p-1.5 rounded bg-foundation-elevated border border-foundation-border text-[#BDCDEF] transition-transform duration-200 flex-shrink-0 ${
-                      isOpen ? "rotate-180 text-white" : ""
-                    }`}
+                    className={`p-1.5 rounded bg-foundation-elevated border border-foundation-border text-[#BDCDEF] transition-transform duration-200 flex-shrink-0 ${isOpen ? "rotate-180 text-white" : ""
+                      }`}
                   >
                     <ChevronDown className="w-4 h-4" />
                   </div>

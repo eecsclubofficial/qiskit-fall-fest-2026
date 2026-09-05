@@ -12,7 +12,7 @@ export function About() {
           {/* Text Story (Col 7) */}
           <div className="lg:col-span-7 flex flex-col">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight mb-6">
-              A premier collegiate quantum computing fest at IISER Bhopal.
+              A premier collegiate quantum computing fest at IISER Bhopal
             </h2>
 
             <div className="space-y-4 text-base sm:text-lg text-[#E0E0E0]/85 leading-relaxed font-normal">
@@ -45,27 +45,6 @@ export function About() {
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
-              </div>
-
-              {/* Caption */}
-              <div className="p-4 border-t border-foundation-border/80 bg-foundation-surface/90 flex items-center justify-between">
-                <div>
-                  <p className="text-xs font-mono font-medium text-white">
-                    Quantum Lab & Collaboration Space
-                  </p>
-                  <p className="text-[11px] font-mono text-[#BDCDEF]">
-                    IISER Bhopal Campus
-                  </p>
-                </div>
-                <div className="w-8 h-8 relative flex-shrink-0">
-                  <Image
-                    src="/assets/brand/qiskit-purple.svg"
-                    alt="Qiskit Icon"
-                    width={32}
-                    height={32}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
               </div>
             </div>
           </div>

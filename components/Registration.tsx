@@ -23,7 +23,7 @@ export function Registration() {
   const [formData, setFormData] = useState<RegistrationFormData>({
     fullName: "",
     email: "",
-    institution: "IISER Bhopal",
+    institution: "",
     role: "Student",
     experience: "Beginner",
     specialRequirements: "",
@@ -99,14 +99,11 @@ export function Registration() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <p className="text-xs font-mono font-medium tracking-[0.2em] text-qiskit-magenta uppercase mb-2">
-            Priority Access
-          </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight">
-            Register your interest.
+            Register Here
           </h2>
           <p className="mt-4 text-base text-[#E0E0E0]/80">
-            Secure your spot for IBM Qiskit Fall Fest 2026 at IISER Bhopal. We will notify you as soon as exact October dates and schedule slots are finalized.
+            Secure your spot for IBM Qiskit Fall Fest 2026 at IISER Bhopal. We will notify you of further details and schedule announcements via email.
           </p>
         </div>
 
@@ -121,7 +118,7 @@ export function Registration() {
 
               <div className="space-y-2">
                 <h3 className="text-2xl font-semibold text-white">
-                  Registration interest recorded.
+                  Registration interest recorded
                 </h3>
                 <p className="text-sm text-[#E0E0E0]/90 max-w-md mx-auto">
                   Thank you, <span className="text-white font-medium">{formData.fullName}</span>. A confirmation has been registered for <span className="font-mono text-qiskit-blue">{formData.email}</span>.
@@ -154,7 +151,7 @@ export function Registration() {
                   setFormData({
                     fullName: "",
                     email: "",
-                    institution: "IISER Bhopal",
+                    institution: "",
                     role: "Student",
                     experience: "Beginner",
                     specialRequirements: "",
@@ -307,29 +304,6 @@ export function Registration() {
                 </div>
               </div>
 
-              {/* Special Requirements (Optional) */}
-              <div>
-                <label
-                  htmlFor="specialRequirements"
-                  className="block text-xs font-mono uppercase tracking-wider text-[#BDCDEF] mb-2"
-                >
-                  Accessibility &amp; Dietary Requirements (Optional)
-                </label>
-                <input
-                  id="specialRequirements"
-                  type="text"
-                  value={formData.specialRequirements}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      specialRequirements: e.target.value,
-                    })
-                  }
-                  placeholder="e.g. Wheelchair access, dietary preferences, captioning"
-                  className="w-full px-3.5 py-2.5 rounded bg-foundation-elevated border border-foundation-border text-white text-sm focus:border-qiskit-blue focus:ring-1 focus:ring-qiskit-blue placeholder:text-foundation-muted transition-colors"
-                />
-              </div>
-
               {/* Consent Checkbox */}
               <div className="pt-2">
                 <label className="flex items-start gap-3 cursor-pointer select-none">
@@ -377,17 +351,11 @@ export function Registration() {
                     </>
                   ) : (
                     <>
-                      <span>Register interest for Fall Fest 2026</span>
+                      <span>Submit your Application</span>
                       <Send className="w-4 h-4" />
                     </>
                   )}
                 </button>
-              </div>
-
-              <div className="pt-2 text-center">
-                <p className="text-[11px] font-mono text-foundation-muted">
-                  [INTEGRATION READY] Free registration · Certificate &amp; hardware compute credits included
-                </p>
               </div>
             </form>
           )}

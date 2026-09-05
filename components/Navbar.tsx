@@ -29,11 +29,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${scrolled
           ? "bg-[#0B0E14]/90 backdrop-blur-md border-b border-foundation-border shadow-lg"
           : "bg-foundation-bg/70 backdrop-blur-sm border-b border-foundation-border/40"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         {/* Brand Group */}
@@ -42,13 +41,25 @@ export function Navbar() {
           className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-qiskit-blue rounded py-1"
           aria-label="IBM Qiskit Fall Fest 2026 IISER Bhopal Home"
         >
-          {/* Qiskit Pictogram */}
-          <div className="relative w-8 h-8 flex-shrink-0">
+          {/* IISER Bhopal Logo */}
+          <div className="relative w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0">
             <Image
-              src="/assets/brand/qiskit-purple.svg"
-              alt="Qiskit Logo"
-              width={32}
-              height={32}
+              src="/assets/usefulGraphics/PNGgraphics/iiserb_logo.png"
+              alt="IISER Bhopal Logo"
+              width={36}
+              height={36}
+              className="w-full h-full object-contain"
+              priority
+            />
+          </div>
+
+          {/* Qiskit Fall Fest Badge */}
+          <div className="relative w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0">
+            <Image
+              src="/assets/usefulGraphics/SVGgraphics/badge-pink.svg"
+              alt="Qiskit Fall Fest Badge"
+              width={36}
+              height={36}
               className="w-full h-full object-contain"
               priority
             />
@@ -102,7 +113,7 @@ export function Navbar() {
             href="#register"
             className="inline-flex items-center justify-center gap-1.5 px-4 py-2 text-xs md:text-sm font-semibold tracking-wide text-white bg-qiskit-magenta hover:bg-[#d83f81] active:scale-[0.98] transition-all rounded focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-qiskit-magenta"
           >
-            <span>Register interest</span>
+            <span>Register Here</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
 
@@ -142,7 +153,7 @@ export function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-white bg-qiskit-magenta rounded"
               >
-                <span>Register interest</span>
+                <span>Register Here</span>
                 <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>

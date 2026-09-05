@@ -67,12 +67,12 @@ export function Footer() {
               </li>
               <li>
                 <a href="#schedule" className="hover:text-white transition-colors">
-                  Programme Schedule [TBD]
+                  Programme Schedule
                 </a>
               </li>
               <li>
                 <a href="#organizers" className="hover:text-white transition-colors">
-                  Organizing Clubs
+                  Organizing Committee
                 </a>
               </li>
               <li>
@@ -112,15 +112,7 @@ export function Footer() {
                   Code of Conduct
                 </button>
               </div>
-              <div>
-                <button
-                  type="button"
-                  onClick={() => setAccessibilityOpen(true)}
-                  className="hover:text-white transition-colors text-left"
-                >
-                  Accessibility Statement
-                </button>
-              </div>
+
               <div className="pt-2">
                 <a
                   href="mailto:eecs.club@iiserb.ac.in?subject=Qiskit%20Fall%20Fest%202026"

@@ -103,7 +103,7 @@ export function Organizers() {
       description:
         "Bridging fundamental quantum physics foundations with modern quantum information science, theoretical keynotes, and student research seminars.",
       icon: Atom,
-      logoUrl: "/assets/clubs/physics-club-logo.svg",
+      logoUrl: "/assets/usefulGraphics/JPEGgraphics/physics_clubLogo.jpeg",
       tag: "Quantum Physics & Theory",
       tagColor: "text-qiskit-pink border-qiskit-pink/40 bg-qiskit-pink/10",
       accentBorder: "hover:border-qiskit-pink",
@@ -123,7 +123,7 @@ export function Organizers() {
             Organizing Committee
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight">
-            Co-organized by student clubs at IISER Bhopal.
+            Co-organized by student clubs at IISER Bhopal
           </h2>
         </div>
 
