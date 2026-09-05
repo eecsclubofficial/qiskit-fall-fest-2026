@@ -4,23 +4,33 @@ import React, { useId, useMemo, useState, useEffect } from "react";
 import LiquidEther from "./LiquidEther";
 
 function useReducedMotionAndMobile() {
-  const [shouldReduce, setShouldReduce] = useState(false);
+  const [mode, setMode] = useState<"full" | "mobile" | "reduced">("full");
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const isMobile = navigator.maxTouchPoints > 0 && window.innerWidth < 768;
-    setShouldReduce(mq.matches || isMobile);
-    const handler = (e: MediaQueryListEvent) => setShouldReduce(e.matches || isMobile);
+
+    if (mq.matches) {
+      setMode("reduced");
+    } else if (isMobile) {
+      setMode("mobile");
+    } else {
+      setMode("full");
+    }
+
+    const handler = (e: MediaQueryListEvent) => {
+      if (e.matches) setMode("reduced");
+    };
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  return shouldReduce;
+  return mode;
 }
 
 export function QuantumBackground() {
   const patternId = useId();
-  const shouldReduce = useReducedMotionAndMobile();
+  const mode = useReducedMotionAndMobile();
 
   const colors = useMemo(() => ["#5227FF", "#FF9FFC", "#B497CF"], []);
   const backgroundColor = useMemo(() => "#000000", []);
@@ -30,14 +40,39 @@ export function QuantumBackground() {
       className="fixed inset-0 pointer-events-none overflow-hidden select-none z-0"
       aria-hidden="true"
     >
-      {shouldReduce ? (
+      {mode === "reduced" ? (
+        // Reduced motion: static gradient
         <div
           className="absolute inset-0 w-full h-full"
           style={{
             background: `radial-gradient(ellipse at 30% 50%, #5227FF22 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, #FF9FFC18 0%, transparent 60%), #000000`,
           }}
         />
+      ) : mode === "mobile" ? (
+        // Mobile: lightweight LiquidEther with reduced GPU load
+        <div className="absolute inset-0 w-full h-full">
+          <LiquidEther
+            colors={colors}
+            mouseForce={0}
+            cursorSize={0}
+            isViscous={true}
+            viscous={50}
+            iterationsViscous={4}
+            iterationsPoisson={6}
+            resolution={0.15}
+            isBounce={false}
+            autoDemo={true}
+            autoSpeed={0.3}
+            autoIntensity={1.5}
+            takeoverDuration={0.5}
+            autoResumeDelay={5000}
+            autoRampDuration={1.0}
+            backgroundColor={backgroundColor}
+            lightMode={false}
+          />
+        </div>
       ) : (
+        // Desktop: full LiquidEther
         <div className="absolute inset-0 w-full h-full">
           <LiquidEther
             colors={colors}

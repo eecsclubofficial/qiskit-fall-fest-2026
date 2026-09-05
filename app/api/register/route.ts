@@ -23,11 +23,23 @@ function checkRateLimit(ip: string): boolean {
 }
 
 function getSheetsClient() {
-  const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n");
+  let privateKey = process.env.GOOGLE_PRIVATE_KEY || "";
   const serviceAccountEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
 
   if (!privateKey || !serviceAccountEmail) {
     throw new Error("Missing Google service account credentials");
+  }
+
+  // Remove surrounding quotes if present (Vercel UI sometimes adds them)
+  privateKey = privateKey.replace(/^["']|["']$/g, "");
+  // Convert literal \n to actual newlines
+  privateKey = privateKey.replace(/\\n/g, "\n");
+  // Handle case where key has no newlines at all (single long string)
+  if (!privateKey.includes("\n") && privateKey.includes("-----BEGIN")) {
+    privateKey = privateKey
+      .replace("-----BEGIN PRIVATE KEY-----", "-----BEGIN PRIVATE KEY-----\n")
+      .replace("-----END PRIVATE KEY-----", "\n-----END PRIVATE KEY-----")
+      .replace(/(.{64})/g, "$1\n");
   }
 
   const auth = new google.auth.GoogleAuth({
