@@ -107,7 +107,7 @@ export function Organizers() {
       tag: "Quantum Physics & Theory",
       tagColor: "text-qiskit-pink border-qiskit-pink/40 bg-qiskit-pink/10",
       accentBorder: "hover:border-qiskit-pink",
-      email: "physics.club@iiserb.ac.in",
+      email: "iiserbhopalphyclub@gmail.com",
     },
   ];
 
