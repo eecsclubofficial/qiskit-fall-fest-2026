@@ -6,7 +6,9 @@ import { Mail, Github, Linkedin, Twitter, ArrowUp } from "lucide-react";
 import { useUIStore } from "@/store/useUIStore";
 
 export function Footer() {
-  const { setPrivacyOpen, setCodeOfConductOpen, setAccessibilityOpen } = useUIStore();
+  const setPrivacyOpen = useUIStore((s) => s.setPrivacyOpen);
+  const setCodeOfConductOpen = useUIStore((s) => s.setCodeOfConductOpen);
+  const setAccessibilityOpen = useUIStore((s) => s.setAccessibilityOpen);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

@@ -7,7 +7,8 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useUIStore } from "@/store/useUIStore";
 
 export function Navbar() {
-  const { mobileMenuOpen: isOpen, setMobileMenuOpen: setIsOpen } = useUIStore();
+  const isOpen = useUIStore((s) => s.mobileMenuOpen);
+  const setIsOpen = useUIStore((s) => s.setMobileMenuOpen);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {

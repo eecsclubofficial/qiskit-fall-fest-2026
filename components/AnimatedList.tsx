@@ -1,42 +1,75 @@
 "use client";
 
-import React, { useRef, useState, useEffect, useCallback, ReactNode } from "react";
-import { motion, useInView } from "motion/react";
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  useCallback,
+  ReactNode,
+  memo,
+} from "react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 import "./AnimatedList.css";
 
 interface AnimatedItemProps {
   children: ReactNode;
   delay?: number;
   index: number;
-  onMouseEnter?: () => void;
+  triggerOnce?: boolean;
   onClick?: () => void;
 }
 
-const AnimatedItem = ({
+const AnimatedItem = memo(function AnimatedItem({
   children,
   delay = 0,
   index,
-  onMouseEnter,
+  triggerOnce = false,
   onClick,
-}: AnimatedItemProps) => {
+}: AnimatedItemProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const inView = useInView(ref, { amount: 0.25, once: false });
+  const shouldReduceMotion = useReducedMotion();
+
+  // Optimized viewport detection: triggers smoothly at 15% visibility
+  const inView = useInView(ref, {
+    amount: 0.15,
+    margin: "0px 0px -30px 0px",
+    once: triggerOnce,
+  });
+
+  const initialVariant = shouldReduceMotion
+    ? { opacity: 0 }
+    : { scale: 0.7, opacity: 0 };
+
+  const animateVariant = inView
+    ? shouldReduceMotion
+      ? { opacity: 1 }
+      : { scale: 1, opacity: 1 }
+    : initialVariant;
 
   return (
     <motion.div
       ref={ref}
       data-index={index}
-      onMouseEnter={onMouseEnter}
       onClick={onClick}
-      initial={{ scale: 0.7, opacity: 0 }}
-      animate={inView ? { scale: 1, opacity: 1 } : { scale: 0.7, opacity: 0 }}
-      transition={{ duration: 0.25, delay, ease: [0.25, 0.1, 0.25, 1] }}
-      className="mb-4 cursor-pointer"
+      initial={initialVariant}
+      animate={animateVariant}
+      transition={{
+        duration: 0.28,
+        delay,
+        ease: [0.16, 1, 0.3, 1], // Smooth organic deceleration
+      }}
+      style={{
+        willChange: "transform, opacity",
+        transformOrigin: "50% 50%",
+        backfaceVisibility: "hidden",
+        WebkitBackfaceVisibility: "hidden",
+      }}
+      className="mb-4 cursor-pointer select-none"
     >
       {children}
     </motion.div>
   );
-};
+});
 
 export interface AnimatedListProps<T = any> {
   items: T[];
@@ -44,6 +77,7 @@ export interface AnimatedListProps<T = any> {
   onItemSelect?: (item: T, index: number) => void;
   showGradients?: boolean;
   enableArrowNavigation?: boolean;
+  triggerOnce?: boolean;
   className?: string;
   itemClassName?: string;
   displayScrollbar?: boolean;
@@ -57,6 +91,7 @@ export default function AnimatedList<T = any>({
   onItemSelect,
   showGradients = false,
   enableArrowNavigation = true,
+  triggerOnce = false,
   className = "",
   itemClassName = "",
   displayScrollbar = false,
@@ -67,10 +102,6 @@ export default function AnimatedList<T = any>({
   const [selectedIndex, setSelectedIndex] = useState(initialSelectedIndex);
   const [topGradientOpacity, setTopGradientOpacity] = useState(0);
   const [bottomGradientOpacity, setBottomGradientOpacity] = useState(1);
-
-  const handleItemMouseEnter = useCallback((index: number) => {
-    setSelectedIndex(index);
-  }, []);
 
   const handleItemClick = useCallback(
     (item: T, index: number) => {
@@ -92,28 +123,21 @@ export default function AnimatedList<T = any>({
     );
   }, [hasScroll]);
 
-  // Arrow navigation scoped to list interaction
+  // Keyboard arrow navigation scoped to container interaction
   useEffect(() => {
     if (!enableArrowNavigation || items.length === 0) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Only process arrow keys if the user has interacted with or focused within the list container
       if (!listRef.current) return;
       const isWithinContainer = listRef.current.contains(document.activeElement);
       if (!isWithinContainer && selectedIndex === -1) return;
 
       if (e.key === "ArrowDown") {
         e.preventDefault();
-        setSelectedIndex((prev) => {
-          const next = prev < items.length - 1 ? prev + 1 : prev;
-          return next;
-        });
+        setSelectedIndex((prev) => (prev < items.length - 1 ? prev + 1 : prev));
       } else if (e.key === "ArrowUp") {
         e.preventDefault();
-        setSelectedIndex((prev) => {
-          const next = prev > 0 ? prev - 1 : 0;
-          return next;
-        });
+        setSelectedIndex((prev) => (prev > 0 ? prev - 1 : 0));
       } else if (e.key === "Enter") {
         if (selectedIndex >= 0 && selectedIndex < items.length) {
           e.preventDefault();
@@ -128,7 +152,7 @@ export default function AnimatedList<T = any>({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [items, selectedIndex, onItemSelect, enableArrowNavigation]);
 
-  // Scroll into view without trapping page scroll
+  // Scroll active item smoothly into view
   useEffect(() => {
     if (selectedIndex < 0 || !listRef.current) return;
     const container = listRef.current;
@@ -169,9 +193,9 @@ export default function AnimatedList<T = any>({
         {items.map((item, index) => (
           <AnimatedItem
             key={index}
-            delay={0.05 * Math.min(index, 6)}
+            delay={Math.min(index * 0.035, 0.2)}
             index={index}
-            onMouseEnter={() => handleItemMouseEnter(index)}
+            triggerOnce={triggerOnce}
             onClick={() => handleItemClick(item, index)}
           >
             {renderItem ? (

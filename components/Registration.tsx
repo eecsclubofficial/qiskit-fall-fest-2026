@@ -17,7 +17,8 @@ interface RegistrationFormData {
 }
 
 export function Registration() {
-  const { setPrivacyOpen, setCodeOfConductOpen } = useUIStore();
+  const setPrivacyOpen = useUIStore((s) => s.setPrivacyOpen);
+  const setCodeOfConductOpen = useUIStore((s) => s.setCodeOfConductOpen);
   const registrationMutation = useRegistrationMutation();
 
   const [formData, setFormData] = useState<RegistrationFormData>({

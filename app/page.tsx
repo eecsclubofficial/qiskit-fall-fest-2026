@@ -27,14 +27,12 @@ export default function HomePage() {
     setMounted(true);
   }, []);
 
-  const {
-    privacyOpen,
-    codeOfConductOpen,
-    accessibilityOpen,
-    setPrivacyOpen,
-    setCodeOfConductOpen,
-    setAccessibilityOpen,
-  } = useUIStore();
+  const privacyOpen = useUIStore((s) => s.privacyOpen);
+  const codeOfConductOpen = useUIStore((s) => s.codeOfConductOpen);
+  const accessibilityOpen = useUIStore((s) => s.accessibilityOpen);
+  const setPrivacyOpen = useUIStore((s) => s.setPrivacyOpen);
+  const setCodeOfConductOpen = useUIStore((s) => s.setCodeOfConductOpen);
+  const setAccessibilityOpen = useUIStore((s) => s.setAccessibilityOpen);
 
   if (!mounted) {
     return (

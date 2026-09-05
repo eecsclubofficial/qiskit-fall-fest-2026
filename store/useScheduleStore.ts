@@ -15,12 +15,14 @@ export const useScheduleStore = create<ScheduleState>()(
   persist(
     (set, get) => ({
       activeTab: 0,
-      expandedId: "d1-s1",
+      expandedId: null,
       bookmarkedSessionIds: [],
 
       setActiveTab: (tab: number) => set({ activeTab: tab }),
       setExpandedId: (id: string | null) =>
-        set((state) => ({ expandedId: state.expandedId === id ? null : id })),
+        set((state) => ({
+          expandedId: id === null ? null : state.expandedId === id ? null : id,
+        })),
       toggleBookmark: (id: string) =>
         set((state) => {
           const exists = state.bookmarkedSessionIds.includes(id);
