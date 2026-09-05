@@ -24,7 +24,7 @@ export function Hero() {
         <div className="mb-10 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-mono text-[#BDCDEF] pointer-events-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-foundation-surface/75 backdrop-blur-md border border-foundation-border/80 shadow-md">
             <Calendar className="w-4 h-4 text-qiskit-blue" />
-            <span>October 2026 · Date to be announced</span>
+            <span>October 9th to 18th, 2026</span>
           </div>
           <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-foundation-surface/75 backdrop-blur-md border border-foundation-border/80 shadow-md">
             <MapPin className="w-4 h-4 text-qiskit-pink" />

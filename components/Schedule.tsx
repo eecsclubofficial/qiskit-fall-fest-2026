@@ -7,16 +7,11 @@ import {
   ChevronUp,
   Calendar,
   AlertCircle,
-  Terminal,
-  Presentation,
-  Trophy,
-  Users,
-  Award,
 } from "lucide-react";
 import AnimatedList from "./AnimatedList";
 import { useScheduleStore } from "@/store/useScheduleStore";
 import { useScheduleQuery } from "@/hooks/useScheduleQuery";
-import { ScheduleEvent, dayTabs } from "@/data/scheduleData";
+import { dayTabs } from "@/data/scheduleData";
 
 export function Schedule() {
   // TanStack Query for schedule events with caching & background updates
@@ -40,44 +35,6 @@ export function Schedule() {
     },
     [setExpandedId]
   );
-
-  const getFormatBadgeStyle = (format: ScheduleEvent["format"]) => {
-    switch (format) {
-      case "Keynote":
-        return "bg-qiskit-blue/20 text-qiskit-blue border-qiskit-blue/35";
-      case "Workshop":
-        return "bg-qiskit-purple/20 text-qiskit-purple-light border-qiskit-purple/35";
-      case "Hackathon":
-        return "bg-qiskit-magenta/20 text-[#FF7EB6] border-qiskit-magenta/35";
-      case "Panel":
-        return "bg-[#A46DFF]/20 text-[#BE95FF] border-[#A46DFF]/40";
-      case "Talk":
-        return "bg-emerald-400/15 text-emerald-300 border-emerald-400/35";
-      case "Ceremony":
-        return "bg-amber-400/20 text-amber-300 border-amber-400/35";
-      default:
-        return "bg-foundation-elevated text-[#BDCDEF] border-foundation-border";
-    }
-  };
-
-  const getFormatIcon = (format: ScheduleEvent["format"]) => {
-    switch (format) {
-      case "Keynote":
-        return Presentation;
-      case "Workshop":
-        return Terminal;
-      case "Hackathon":
-        return Trophy;
-      case "Panel":
-        return Users;
-      case "Talk":
-        return Presentation;
-      case "Ceremony":
-        return Award;
-      default:
-        return Presentation;
-    }
-  };
 
   return (
     <section
@@ -153,7 +110,6 @@ export function Schedule() {
           onItemSelect={(event) => toggleEvent(event.id)}
           renderItem={(event, index, isSelected) => {
             const isExpanded = expandedId === event.id;
-            const Icon = getFormatIcon(event.format);
 
             return (
               <div
@@ -188,38 +144,17 @@ export function Schedule() {
                     <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-qiskit-purple/15 text-qiskit-purple-light border border-qiskit-purple/25">
                       Day 0{event.day}
                     </span>
-                    <div className="flex items-center gap-1.5 text-xs text-[#BDCDEF] font-mono">
+                    <div className="flex items-center gap-1.5 text-xs font-mono">
                       <Calendar className="w-3.5 h-3.5 text-qiskit-blue flex-shrink-0" />
-                      <span>{event.weekday}</span>
+                      <span className="text-qiskit-pink">{event.weekday}</span>
                     </div>
                   </div>
 
-                  {/* Center: Title, Format Tag, Speaker */}
+                  {/* Center: Title */}
                   <div className="flex-1 min-w-0">
-                    <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <span
-                        className={`inline-flex items-center gap-1.5 text-[11px] font-mono font-medium px-2.5 py-0.5 rounded-full border ${getFormatBadgeStyle(
-                          event.format
-                        )}`}
-                      >
-                        <Icon className="w-3 h-3" />
-                        <span>{event.format}</span>
-                      </span>
-
-                      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-foundation-elevated border border-foundation-border text-[#E0E0E0]">
-                        {event.level}
-                      </span>
-                    </div>
-
                     <h3 className="text-base sm:text-lg md:text-xl font-semibold tracking-tight text-white group-hover:text-qiskit-blue transition-colors">
                       {event.title}
                     </h3>
-
-                    {event.speaker && (
-                      <p className="text-xs font-mono text-foundation-muted mt-1 truncate">
-                        {event.speaker}
-                      </p>
-                    )}
                   </div>
 
                   {/* Right: Venue & Accordion Indicator */}
@@ -254,37 +189,16 @@ export function Schedule() {
                 >
                   <div className="overflow-hidden">
                     <div className="px-5 sm:px-6 pb-6 pt-3 border-t border-foundation-border/60 bg-foundation-elevated/30">
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs font-mono">
-                        <div className="md:col-span-2 space-y-2">
-                          <span className="text-[#BDCDEF] uppercase tracking-wider block font-semibold">
-                            Session Overview
-                          </span>
-                          <p className="text-sm font-sans text-[#E0E0E0]/90 leading-relaxed">
-                            {event.description}
-                          </p>
-                        </div>
-
-                        <div className="space-y-3 bg-foundation-surface/50 p-3.5 rounded-lg border border-foundation-border/50">
-                          <div>
-                            <span className="text-[#BDCDEF] uppercase tracking-wider block font-semibold mb-1">
-                              Date &amp; Venue
-                            </span>
-                            <p className="text-xs font-sans text-white">
-                              {event.date} ({event.weekday})
-                            </p>
-                            <p className="text-xs font-sans text-qiskit-blue mt-0.5">
-                              {event.venue}, IISER Bhopal
-                            </p>
-                          </div>
-
-                          <div>
-                            <span className="text-[#BDCDEF] uppercase tracking-wider block font-semibold mb-1">
-                              Prerequisites
-                            </span>
-                            <p className="text-xs font-sans text-[#E0E0E0]/80 leading-relaxed">
-                              {event.prerequisites || "Open to all participants."}
-                            </p>
-                          </div>
+                      <div className="space-y-3">
+                        <span className="text-[#BDCDEF] uppercase tracking-wider block font-semibold text-xs font-mono">
+                          Session Overview
+                        </span>
+                        <p className="text-sm text-[#E0E0E0]/90 leading-relaxed">
+                          {event.description}
+                        </p>
+                        <div className="flex items-center gap-1.5 text-xs font-mono text-qiskit-blue pt-1">
+                          <Calendar className="w-3.5 h-3.5 flex-shrink-0" />
+                          <span>{event.date} ({event.weekday})</span>
                         </div>
                       </div>
                     </div>
