@@ -3,21 +3,30 @@
   width: 100%;
 }
 
+/* Default single-page flow: no separate scrolling container */
 .scroll-list {
+  width: 100%;
+  overflow: visible;
+  padding: 0;
+  outline: none;
+}
+
+/* Optional container scroll mode when explicitly requested */
+.scroll-list.has-scroll {
   max-height: 620px;
   overflow-y: auto;
   padding: 6px 4px;
 }
 
-.scroll-list::-webkit-scrollbar {
+.scroll-list.has-scroll::-webkit-scrollbar {
   width: 8px;
 }
 
-.scroll-list::-webkit-scrollbar-track {
+.scroll-list.has-scroll::-webkit-scrollbar-track {
   background: #0B0E14;
 }
 
-.scroll-list::-webkit-scrollbar-thumb {
+.scroll-list.has-scroll::-webkit-scrollbar-thumb {
   background: #343A3F;
   border-radius: 4px;
 }
