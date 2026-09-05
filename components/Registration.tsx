@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import confetti from "canvas-confetti";
 import { Check, Loader2, Send, ShieldCheck, AlertCircle, Sparkles } from "lucide-react";
 import { useRegistrationMutation } from "@/hooks/useRegistrationMutation";
@@ -32,6 +32,7 @@ export function Registration() {
   });
 
   const [validationError, setValidationError] = useState("");
+  const confettiCooldown = useRef(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,12 +55,16 @@ export function Registration() {
       await registrationMutation.mutateAsync(formData);
 
       try {
-        confetti({
-          particleCount: 80,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ["#A46DFF", "#FF7EB6", "#4589FF", "#EE5396", "#FFFFFF"],
-        });
+        if (!confettiCooldown.current) {
+          confettiCooldown.current = true;
+          confetti({
+            particleCount: 80,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ["#A46DFF", "#FF7EB6", "#4589FF", "#EE5396", "#FFFFFF"],
+          });
+          setTimeout(() => { confettiCooldown.current = false; }, 2000);
+        }
       } catch {
         // Fallback if canvas-confetti is restricted
       }

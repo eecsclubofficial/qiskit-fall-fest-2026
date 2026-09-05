@@ -13,7 +13,6 @@ import {
   Users,
   Award,
 } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
 import AnimatedList from "./AnimatedList";
 import { useScheduleStore } from "@/store/useScheduleStore";
 import { useScheduleQuery } from "@/hooks/useScheduleQuery";
@@ -247,54 +246,50 @@ export function Schedule() {
                 </div>
 
                 {/* Animated Expanded Details Accordion */}
-                <AnimatePresence initial={false}>
-                  {isExpanded && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
-                      className="overflow-hidden"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <div className="px-5 sm:px-6 pb-6 pt-3 border-t border-foundation-border/60 bg-foundation-elevated/30">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs font-mono">
-                          <div className="md:col-span-2 space-y-2">
-                            <span className="text-[#BDCDEF] uppercase tracking-wider block font-semibold">
-                              Session Overview
+                <div
+                  className={`grid transition-[grid-template-rows,opacity] duration-240 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-5 sm:px-6 pb-6 pt-3 border-t border-foundation-border/60 bg-foundation-elevated/30">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs font-mono">
+                        <div className="md:col-span-2 space-y-2">
+                          <span className="text-[#BDCDEF] uppercase tracking-wider block font-semibold">
+                            Session Overview
+                          </span>
+                          <p className="text-sm font-sans text-[#E0E0E0]/90 leading-relaxed">
+                            {event.description}
+                          </p>
+                        </div>
+
+                        <div className="space-y-3 bg-foundation-surface/50 p-3.5 rounded-lg border border-foundation-border/50">
+                          <div>
+                            <span className="text-[#BDCDEF] uppercase tracking-wider block font-semibold mb-1">
+                              Date &amp; Venue
                             </span>
-                            <p className="text-sm font-sans text-[#E0E0E0]/90 leading-relaxed">
-                              {event.description}
+                            <p className="text-xs font-sans text-white">
+                              {event.date} ({event.weekday})
+                            </p>
+                            <p className="text-xs font-sans text-qiskit-blue mt-0.5">
+                              {event.venue}, IISER Bhopal
                             </p>
                           </div>
 
-                          <div className="space-y-3 bg-foundation-surface/50 p-3.5 rounded-lg border border-foundation-border/50">
-                            <div>
-                              <span className="text-[#BDCDEF] uppercase tracking-wider block font-semibold mb-1">
-                                Date &amp; Venue
-                              </span>
-                              <p className="text-xs font-sans text-white">
-                                {event.date} ({event.weekday})
-                              </p>
-                              <p className="text-xs font-sans text-qiskit-blue mt-0.5">
-                                {event.venue}, IISER Bhopal
-                              </p>
-                            </div>
-
-                            <div>
-                              <span className="text-[#BDCDEF] uppercase tracking-wider block font-semibold mb-1">
-                                Prerequisites
-                              </span>
-                              <p className="text-xs font-sans text-[#E0E0E0]/80 leading-relaxed">
-                                {event.prerequisites || "Open to all participants."}
-                              </p>
-                            </div>
+                          <div>
+                            <span className="text-[#BDCDEF] uppercase tracking-wider block font-semibold mb-1">
+                              Prerequisites
+                            </span>
+                            <p className="text-xs font-sans text-[#E0E0E0]/80 leading-relaxed">
+                              {event.prerequisites || "Open to all participants."}
+                            </p>
                           </div>
                         </div>
                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                    </div>
+                  </div>
+                </div>
               </div>
             );
           }}

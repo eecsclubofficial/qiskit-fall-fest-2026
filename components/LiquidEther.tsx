@@ -1186,7 +1186,7 @@ export default function LiquidEther({
     const io = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        const isVisible = entry.isIntersecting && entry.intersectionRatio > 0;
+        const isVisible = entry.isIntersecting;
         isVisibleRef.current = isVisible;
         if (!webglRef.current) return;
         if (isVisible && !document.hidden) {
@@ -1195,7 +1195,7 @@ export default function LiquidEther({
           webglRef.current.pause();
         }
       },
-      { threshold: [0, 0.01, 0.1] }
+      { threshold: 0 }
     );
     io.observe(container);
     intersectionObserverRef.current = io;
@@ -1213,6 +1213,7 @@ export default function LiquidEther({
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      if (resizeRafRef.current) cancelAnimationFrame(resizeRafRef.current);
       if (resizeObserverRef.current) {
         try {
           resizeObserverRef.current.disconnect();
@@ -1232,27 +1233,7 @@ export default function LiquidEther({
       }
       webglRef.current = null;
     };
-  }, [
-    BFECC,
-    cursorSize,
-    dt,
-    isBounce,
-    isViscous,
-    iterationsPoisson,
-    iterationsViscous,
-    mouseForce,
-    resolution,
-    viscous,
-    colors,
-    autoDemo,
-    autoSpeed,
-    autoIntensity,
-    takeoverDuration,
-    autoResumeDelay,
-    autoRampDuration,
-    backgroundColor,
-    lightMode,
-  ]);
+  }, []);
 
   useEffect(() => {
     const webgl = webglRef.current;
