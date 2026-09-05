@@ -38,7 +38,7 @@ export function Hero() {
             href="#register"
             className="w-full sm:w-auto min-w-[190px] px-7 py-3.5 text-sm font-semibold tracking-wide text-white bg-qiskit-magenta hover:bg-[#d83f81] active:scale-[0.98] transition-all rounded text-center shadow-lg shadow-qiskit-magenta/20 focus-visible:ring-2 focus-visible:ring-qiskit-magenta"
           >
-            Register interest
+            Register Here
           </a>
           <a
             href="#schedule"

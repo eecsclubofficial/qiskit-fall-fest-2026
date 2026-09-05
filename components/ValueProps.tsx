@@ -14,29 +14,26 @@ export function ValueProps() {
       icon: BookOpen,
       accentBorder: "hover:border-qiskit-blue",
       numColor: "text-qiskit-blue",
-      badge: "Hands-on tracks",
     },
     {
       num: "02",
       title: "Build",
       subtitle: "Algorithms on real hardware",
       description:
-        "Write algorithms using Qiskit 1.0 Runtime, experiment with quantum chemistry and optimization, and execute circuits on IBM Quantum systems.",
+        "Write algorithms using Qiskit, experiment with quantum applications and optimization, and execute circuits on IBM Quantum systems.",
       icon: Cpu,
       accentBorder: "hover:border-qiskit-purple",
       numColor: "text-qiskit-purple",
-      badge: "IBM Quantum hardware",
     },
     {
       num: "03",
       title: "Collaborate",
       subtitle: "Multidisciplinary hackathon",
       description:
-        "Team up across physics, computer science, and mathematics to solve open problems in quantum computing and compete for hackathon prizes.",
+        "Team up across multiple domains to solve open problems in quantum computing and compete for hackathon prizes.",
       icon: Users,
       accentBorder: "hover:border-qiskit-pink",
       numColor: "text-qiskit-pink",
-      badge: "Hackathon sprint",
     },
   ];
 
@@ -49,7 +46,7 @@ export function ValueProps() {
             Why take part
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight">
-            Learn, build, and collaborate on quantum technologies.
+            Learn, build, and collaborate on quantum technologies
           </h2>
         </div>
 
@@ -63,13 +60,10 @@ export function ValueProps() {
                 className={`group relative bg-foundation-surface border border-foundation-border rounded-lg p-7 sm:p-8 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 ${card.accentBorder}`}
               >
                 <div>
-                  {/* Top Bar: Number + Tag */}
+                  {/* Top Bar: Number */}
                   <div className="flex items-center justify-between mb-6">
                     <span className={`text-3xl font-mono font-semibold ${card.numColor}`}>
                       {card.num}
-                    </span>
-                    <span className="text-xs font-mono px-2.5 py-1 rounded bg-foundation-elevated border border-foundation-border text-[#BDCDEF]">
-                      {card.badge}
                     </span>
                   </div>
 
@@ -90,10 +84,6 @@ export function ValueProps() {
                   <p className="text-sm text-[#E0E0E0]/80 leading-relaxed">
                     {card.description}
                   </p>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-foundation-border/60 flex items-center text-xs font-mono text-[#BDCDEF]/70 group-hover:text-white transition-colors">
-                  <span>Part of Qiskit Fall Fest 2026</span>
                 </div>
               </div>
             );

@@ -57,9 +57,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={cn("dark", ibmPlexSans.variable, ibmPlexMono.variable, "font-sans", geist.variable)}
     >
-      <body className="bg-foundation-bg text-foundation-light min-h-screen antialiased selection:bg-qiskit-purple selection:text-white">
+      <body
+        suppressHydrationWarning
+        className="bg-foundation-bg text-foundation-light min-h-screen antialiased selection:bg-qiskit-purple selection:text-white"
+      >
         <QueryProvider>
           <a href="#main-content" className="skip-link">
             Skip to main content
